@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomItemMy">
+        <attr name="name" format="string" />
+        <attr name="details" format="string" />
+        <attr name="icon" format="reference"/>
+        <attr name="is_show_line" format="boolean" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="AuditProgressView">
+        <!--当前步骤是否完成 -->
+        <attr name="apv_isCurrentComplete" format="boolean" />
+        <!--下一个步骤是否完成 -->
+        <attr name="apv_isNextComplete" format="boolean" />
+        <!--是不是第一个步骤 -->
+        <attr name="apv_isFirstStep" format="boolean" />
+        <!--是不是最后一个步骤 -->
+        <attr name="apv_isLastStep" format="boolean" />
+        <!--共有几个步骤 -->
+        <attr name="apv_stepCount" format="integer" />
+        <!--步骤提示 -->
+        <attr name="apv_text" format="string|reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ItemReleaseHouseView">
+        <attr name="item_name" format="string"></attr>
+        <attr name="item_content" format="string"></attr>
+        <attr name="item_detais" format="string"></attr>
+        <attr name="item_showicon" format="boolean"></attr>
+        <attr name="item_showtext" format="boolean"></attr>
+        <attr name="item_showline" format="boolean"></attr>
+        <attr name="item_isedit"  format="boolean"></attr>
+    </declare-styleable>
+
+<declare-styleable name="LoginItemView">
+<attr name="login_name" format="string"></attr>
+    <attr name="login_content" format="string"></attr>
+    <attr name="login_show_eye" format="boolean"></attr>
+    <attr name="login_show_check_code" format="boolean"></attr>
+</declare-styleable>
+    <declare-styleable name="ItemBuyHouseStepView">
+        <attr name="item_buyhouse_name" format="string"></attr>
+        <attr name="item_buyhouse_content" format="string"></attr>
+        <attr name="item_buyhouse_isshowline" format="boolean"></attr>
+
+
+
+    </declare-styleable>
+
+    <declare-styleable name="LoginNewItemView">
+        <attr name="login_new_item_name" format="string"></attr>
+        <attr name="login_new_item_hint_content" format="string"></attr>
+        <attr name="login_new_item_show_line" format="boolean"></attr>
+        <attr name="login_new_item_showIcon" format="boolean"></attr>
+
+
+
+    </declare-styleable>
+    <declare-styleable name="CircleLoadingView">
+        <attr name="progress_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="NumberButton">
+        <attr name="editable" format="boolean"/>
+        <attr name="buttonWidth" format="dimension" />
+        <attr name="textWidth" format="dimension" />
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+
+
+    <!-- 外部定义四个类型的属性 -->
+    <attr name="icon_m" format="reference" />
+    <attr name="color_m" format="color" />
+    <attr name="text_m" format="string" />
+    <attr name="text_size" format="dimension" />
+
+    <declare-styleable name="ChangeColorIconView">
+        <attr name="icon_m" />
+        <attr name="color_m" />
+        <attr name="text_m" />
+        <attr name="text_size" />
+    </declare-styleable>
+
+
+
+
+</resources>

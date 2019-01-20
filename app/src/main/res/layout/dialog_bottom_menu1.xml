@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/dp_12"
+              android:paddingLeft="@dimen/dp_12"
+              android:paddingRight="@dimen/dp_12"
+              android:paddingTop="@dimen/dp_12">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/lay_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/c_ffffff"-->
+        <!--android:layout_marginBottom="@dimen/dp_8"-->
+        <!--android:orientation="vertical"/>-->
+
+    <translatedemo.com.translatedemo.view.MyGridView
+        android:id="@+id/mygridview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:background="@drawable/common_dialog_selection_selector_singleton"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:numColumns="1">
+
+    </translatedemo.com.translatedemo.view.MyGridView>
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_dialog_selection_selector_singleton"
+        android:paddingBottom="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_8"
+        android:text="@string/translate_text_quxiao"
+        android:gravity="center"
+        android:textColor="#007AFF"
+        android:textSize="@dimen/sp_19"
+        android:textStyle="bold"/>
+
+</LinearLayout>

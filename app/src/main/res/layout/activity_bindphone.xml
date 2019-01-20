@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/c_ff333333"
+        android:layout_marginTop="@dimen/dp_107"
+        android:layout_marginLeft="@dimen/dp_47"
+        android:textStyle="bold"
+        android:text="@string/bindphone_text_title"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+
+
+        <EditText
+            android:id="@+id/bindphone_inputeditext_phone"
+            android:layout_width="@dimen/dp_280"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_52"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/login_hint_phone"
+            android:padding="@dimen/dp_10"
+            android:inputType="number"
+            android:textColor="@color/c_383838"
+            android:textColorHint="@color/c_ff565656"
+            android:textSize="@dimen/sp_12"
+            android:background="@drawable/login_input_back"/>
+
+
+        <LinearLayout
+
+            android:layout_width="@dimen/dp_280"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_25"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/login_input_back"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/bindphone_inoputeditext_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/login_hint_code"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/c_383838"
+                android:textColorHint="@color/c_ff565656"/>
+
+
+            <TextView
+
+                android:id="@+id/bindphone_text_getcode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/login_but_getcode"
+                android:gravity="center"
+                android:textColor="@color/c_e94950"
+                android:textSize="@dimen/sp_14"/>
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:id="@+id/bindphone_btn_confirm"
+            android:layout_width="@dimen/dp_280"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginTop="@dimen/dp_70"
+            android:background="@drawable/login_but"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/c_ffffff"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:textSize="@dimen/sp_18"
+            android:text="@string/bindphone_but_confirm"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

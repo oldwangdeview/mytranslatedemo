@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_10"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_12"
+        android:textColor="@color/c_999999"
+        android:text="@string/translate_text_tsvip"/>
+    <Button
+        android:id="@+id/become_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:textSize="@dimen/sp_14"
+        android:text="@string/translate_text_becomevip"
+        android:background="@drawable/becomevip_shape"
+        android:paddingLeft="@dimen/dp_25"
+        android:layout_marginTop="@dimen/dp_30"
+        android:textColor="@color/c_ffffff"
+        android:paddingRight="@dimen/dp_25"
+        />
+
+</LinearLayout>

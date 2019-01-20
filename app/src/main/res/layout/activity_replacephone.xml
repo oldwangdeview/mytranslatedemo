@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/c_f5f5f5">
+    <include layout="@layout/layout_title"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_47"
+        android:layout_marginRight="@dimen/dp_47"
+        android:layout_marginTop="@dimen/dp_100"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:background="@drawable/replacephone_shape">
+        <EditText
+            android:id="@+id/oldphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/replacephone_text_oldphone"
+            android:background="@null"
+            android:textColor="@color/c_ff333333"
+            android:textSize="@dimen/sp_14"
+            android:textColorHint="@color/c_a6a6a6"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_47"
+        android:layout_marginRight="@dimen/dp_47"
+        android:layout_marginTop="@dimen/dp_30"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:background="@drawable/replacephone_shape">
+        <EditText
+            android:id="@+id/newphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/replacephone_text_newphone"
+            android:background="@null"
+            android:textColor="@color/c_ff333333"
+            android:textSize="@dimen/sp_14"
+            android:textColorHint="@color/c_a6a6a6"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_47"
+        android:layout_marginRight="@dimen/dp_47"
+        android:layout_marginTop="@dimen/dp_30"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:background="@drawable/replacephone_shape">
+        <EditText
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/replacephone_text_code"
+            android:background="@null"
+            android:textColor="@color/c_ff333333"
+            android:textSize="@dimen/sp_14"
+            android:textColorHint="@color/c_a6a6a6"/>
+
+        <TextView
+            android:id="@+id/getcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:textColor="#f13547"
+            android:text="@string/login_but_getcode"/>
+    </LinearLayout>
+    
+    
+    <Button
+        android:id="@+id/uplode"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@drawable/replacephone_btn_shape"
+        android:layout_marginTop="@dimen/dp_90"
+        android:layout_marginRight="@dimen/dp_47"
+        android:layout_marginLeft="@dimen/dp_47"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/c_ffffff"
+        android:text="@string/replacephone_text_uploaddata"/>
+
+</LinearLayout>

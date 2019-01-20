@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/c_ffffffff"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:id="@+id/rl_headroot_loadpage_error"
+        android:layout_height="@dimen/dp_44">
+
+        <ImageView
+
+            android:id="@+id/iv_back_loadpage_error"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:padding="@dimen/dp_3"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:src="@mipmap/fh" />
+
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        
+        <ImageView
+            android:layout_width="@dimen/dp_80"
+            android:src="@mipmap/jzsb"
+            android:scaleType="fitXY"
+            android:layout_height="@dimen/dp_97" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/net_error"
+            android:textColor="@color/c_ff999999"
+            android:textSize="@dimen/sp_14"
+            />
+        <TextView
+
+            android:layout_marginTop="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/getmessage_agin"
+            android:paddingBottom="@dimen/dp_14"
+            android:paddingRight="@dimen/dp_18"
+            android:background="@drawable/retry_loading_shape"
+            android:id="@+id/tv_retry_loading_loadingpage_error"
+            android:paddingLeft="@dimen/dp_18"
+            android:textColor="@color/c_383838"
+            android:textSize="@dimen/sp_16"
+            />
+
+    </LinearLayout>
+
+
+
+    
+
+</RelativeLayout>

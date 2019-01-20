@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_ffffff"
+    android:orientation="vertical">
+    <include layout="@layout/layout_title"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/c_e5e5e5"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_height="match_parent">
+        <translatedemo.com.translatedemo.view.YRecycleview
+            android:layout_width="match_parent"
+            android:id="@+id/yrecycleview_"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+</LinearLayout>

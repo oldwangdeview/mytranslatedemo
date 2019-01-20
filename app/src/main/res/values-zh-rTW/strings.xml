@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">བོད་ཡིག་ཡིག་སྒྱུར་སྤའོ་།</string>
+
+	<string name="help">རོགས་རམ།</string>
+	<string name="string_help_text">མིག་སྔ་འི་ཉེར་སྤྱོད་མཚན་དབང་ཚད་ལྟར།。\n\nཁྱེད་ཀྱི་དེ་མཚུངས་ཀྱི།\"བཀོད་སྒྲིག།\"-\"དབང་ཚད།\"-འབྱེད་པར་མཁོ་བའི་དབང་ཚད།。\n\nམཇུག་མཐར་དེ་མཚུངས་ཐེངས་གཉིས་ཡོད་པར་བརྟབས་པ་གཅུས་སྒོ།，བུ་སྣོད་ཕྱིར།。</string>
+	<string name="quit">ཕྱིར་འཐེན།</string>
+	<string name="exite_dialog">སླར་ཡང་ལྟར་ཐེངས་གཅིག་ཕྱིར་འཐེན་བྱེད་པའི་གོ་རིམ།</string>
+	<string name="settings">བཀོད་སྒྲིག།</string>
+	<string name="choice_language_title">བསལ་འདེམས་ཀྱི་སྐད།</string>
+	<string name="choice_language_choicetext">འདེམ་རོགས་།གོམས་གཤིས་སྐད་བརྡ་</string>
+	<string name="choice_language_choicebottom_text">© བོད་ཡིག་ཡིག་སྒྱུར་སྤའོ་།</string>
+	<string name="returntext">སྣ་ལྡོག་པ་</string>
+	<string name="nomessage">གནས་སྐབས་སུ་ནང་དོན་མེད་། ཨོ་།</string>
+	<string name="net_error">ངན་པ་, ཕམ་ཁ་ཁུར་སྣོན་</string>
+	<string name="getmessage_agin">བསྐྱར་དུ་ཕབ་ལེན་བྱེད་</string>
+	<string name="tackphoto">པར་ལེན་པ་</string>
+	<string name="imagelist">ས་གནས་རང་གི་པར་དེབ་ལ་</string>
+	<string name="update_seccese">བཟོ་བཅོས་ལེགས་འགྲུབ་བྱུང་</string>
+	<!--主页底部导航栏-->
+
+	<string name="translate_boottom">ཚིག་མཛོད་</string>
+	<string name="message_boottom">ཡིག་སྒྱུར་</string>
+	<string name="user_boottom">ངའི་</string>
+
+	<!--登录-->
+	<string name="login_text_titlename">སླེབས་པ།</string>
+	<string name="login_title">དགའ་བསུ་བཀོལ་སྤྱོད་བོད་རྒྱ་ལོ་ཙཱ་རིན་ཆེན།</string>
+	<string name="login_hint_phone">ཁྱེད་ཀྱི་ཚད་ལག་ཐོགས་ཁ་པར་གྱི་ཨང་གྲངས།</string>
+	<string name="login_hint_code">ཁྱེད་ཀྱི་ཚད་ཚོད་ལྟ་ས་ར་སྤྲོད་མ།</string>
+	<string name="login_but_getcode">ལག་སོན་ཚོད་ལྟ་ས་ར་སྤྲོད་མ།</string>
+	<string name="login_but_login">ངགཏན་ཁེལ།</string>
+	<string name="login_text_otherlogin">ཕྱོགས་གསུམ་རྩིས་ཐོའི་ཨང་གྲངས་དང་མགྱོགས་པོ་སླེབས།</string>
+	<string name="login_error_notphonenumber">ཁྱེད་ཀྱི་ཚད་ལག་ཐོགས་ཁ་པར་གྱི་ཨང་གྲངས།</string>
+	<string name="login_error_isnotphone">ཁྱེད་ཀྱི་ཚད་ཡང་དག་པའི་ལག་ཐོགས་ཁ་པར་གྱི་ཨང་གྲངས།</string>
+	<string name="login_error_notcode">ཁྱེད་ཀྱི་ཚད་ཚོད་ལྟ་ས་ར་སྤྲོད་མ།</string>
+	<string name="login_text_bottom">《སྤྱོད་མཁན་གྱིས་ཞབས་ཞུའི་གྲོས་མཐུན་》</string>
+
+
+	<!--绑定手机号-->
+	<string name="bindphone_text_title">རོགས་། ཁྱེད་རང་གི་ཁ་པར་ཨང་གྲངས་སྦྲེལ་ཐུབ་སོང་།</string>
+	<string name="bindphone_text_titlename">ལག་ཐོགས་ཁ་པར་ལ་སྦྲེལ་ཐུབ་སོང་།</string>
+	<string name="bindphone_but_confirm">གཏན་འཁེལ་སྦྲེལ་ཐུབ་སོང་།</string>
+
+	<!--用户使用服务协议-->
+	<string name="user_agreementment_text_tiltlemessage">སྤྱོད་མཁན་གྱིས་ཞབས་ཞུའི་གྲོས་མཐུན་</string>
+	<string name="user_agreementment_text_tiltlemessage1">ཡོངས་ཁྱབ་བརྡ་ཡིག་གི་གནས་ཚུལ་གསལ་བོ་ཤེས་འདོད་ན་</string>
+	<!--翻译-->
+	<string name="translate_text_chinese">རྒྱ་སྐད།</string>
+	<string name="translate_text_zangwen">བོད་སྐད།</string>
+	<string name="translate_text_translate">རྩད་གཅོད་བྱས་པའི་ཐ་སྙད་བཏགས་རོགས་།་</string>
+	<string name="translate_text_zanghan">བོད་རྒྱ་</string>
+	<string name="translate_text_netmessage">དྲ་རྒྱའི་ཀྱི་དོན་འགྲེལ་།</string>
+	<string-array name="translate_choiceimage">
+		<item>༄༅་། སློབ་ཚན་དྲུག་པ་། བོད་སྐད་</item>
+		<item>རྒྱ་སྐད་</item>
+		<item>དབྱིན་ཡིག་</item>
+		<item>སམ་ཀྲི་ཏ་</item>
+	</string-array>
+
+	<!--个人中心-->
+	<string name="userinfo_text_titlename">སྒེར་གྱི་ལྟེ་གནས་</string>
+	<string name="userinfo_text_vipcenter">ཚོགས་མི་ལྟེ་གནས་</string>
+	<string name="userinfo_text_myfile">ངའི་ཉར་ཚགས་</string>
+	<string name="userinfo_text_mycoupon">ངའི་གཟིགས་སྐྱོང་ཡི་གེ་རེད་</string>
+	<string name="userinfo_text_offlinedata">དྲ་ཐོག་ཏུ་མེད་པའི་གཞི་གྲངས་</string>
+	<string name="userinfo_text_noticedata">བརྡ་སྦྱོར་སྤྱི་བསྒྲགས་</string>
+	<string name="userinfo_text_helpcenter">རོགས་རམ་ལྟེ་གནས་</string>
+	<string name="userinfo_text_feedback">བསམ་འཆར་བཤད་པ་</string>
+	<string name="userinfo_text_seting">གསར་འཛུགས་</string>
+	<string name="userinfo_text_noadd">སྦྱོར་རྟ་མེད་ན་།</string>
+	<string name="userinfo_text_nobading">མ་སྦྲེལ་ཐུབ་སོང་།</string>
+
+	<!--翻译界面-->
+	<string name="translate_text_quxiao">མི་དགོས་པར་བཟོ་བ་</string>
+	<string name="translate_text_dialog">VIP ཡི་མི་བརྡ་ཁྱབ་</string>
+	<string name="translate_text_tsvip">ཚིག་མཛོད་འདི་ལས་བཀག་VIPཚོགས་མིའི་ཆེད་ལོངས་སྤྱོད་</string>
+	<string name="translate_text_qued">གཏན་ལ་ཕབ་པ་</string>
+	<string name="translate_text_becomevip">འཕྲལ་མར་གྱུར་།VIP</string>
+	<string name="translate_text_nodata">འབྲས་བུ་རྙེད་མེད་།</string>
+	<string name="translate_text_feedback">ང་ལ་ལྡོག་འདྲེན་</string>
+	<string name="translate_text_uploaderreo">ངས་ནོར་།</string>
+
+
+	<!--资讯-->
+	<string name="noticedetail_text_lookuser">ཀློག་པ་</string>
+	<string name="noticedetail_text_titlename">དཔྱད་ཡིག་ཆ་འཕྲིན་གནས་ཚུལ་གསལ་བོ་ཤེས་འདོད་ན་</string>
+	<string name="noticedatail_text_iszan">ཁྱེད་རང་བཙན་མྱོང་ཟིན་སོང་།</string>
+
+	<!--我的资料-->
+	<string name="myuserinfo_text_titlename">ངའི་ཡིག་ཆ་</string>
+	<string name="myuserinfo_text_headimage">མགོ་བརྗོད་པར་</string>
+	<string name="myuserinfo_text_username">སྤྱོད་མཁན་མིང་</string>
+	<string name="myuserinfo_text_sex">ཕོའམ་མོ་</string>
+	<string name="myuserinfo_text_educiton">ཡོན་ཚད་</string>
+	<string name="myuserinfo_text_age">ལོ་ན་</string>
+	<string name="myuserinfo_btn_save">ཉར་ཚགས་</string>
+	<string name="myuserinfo_text_man">ཕོ་</string>
+	<string name="myuserinfo_text_wuman">མོ་</string>
+
+	<!--会员中心-->
+	<string name="membercenter_text_title">ཚོགས་མི་ལྟེ་གནས་</string>
+	<string name="membercenter_text_choicetc">ཟ་མ་ཆ་ཚང་</string>
+	<string name="membercenter_text_openvip">བསམ་རྒྱ་ཆེར་གཏོང་བ་</string>
+	<string name="membercenter_text_day">གནམ་</string>
+	<string name="membercenter_text_botvip">ཁྱོད་ཀྱིས་ད་དུང་མ་རེད་། ཚོགས་མིའི་</string>
+	<string name="membercenter_text_year">ལོ་</string>
+	<string name="membercenter_text_month">ཟླ་བ་</string>
+	<string name="membercenter_text_vipmessage">ཚོགས་མིའི་ཁེ་དབང་ཡོད་པ་སྟེ་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་ལ་ངོ་སྤྲོད་བྱས་པར་གཞིགས་ན་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་ལ་ངོ་སྤྲོད་བྱས་པར་གཞིགས་ན་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་ལ་ངོ་སྤྲོད་བྱས་པར་གཞིགས་ན་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་ལ་ངོ་སྤྲོད་བྱས་པར་གཞིགས་ན་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་ལ་ངོ་སྤྲོད་བྱས་པར་གཞིགས་ན་། འདི་ནི་ཚོགས་མིའི་ཁེ་དབང་གི་ངོ་སྤྲོད་བྱས་པ་རེད་།</string>
+	<string name="membercenter_text_vipzx">ཚོགས་མིའི་ཆེད་ལོངས་སྤྱོད་</string>
+	<string name="membercenter_text_vipcenter">བོད་སྐད་པའོ་ཚོགས་མི་ལྟེ་གནས་</string>
+	<string name="membercenter_text_hzcd">ཞིན་ཧྭ་རྒྱ་བོད་ཚིག་མཛོད་</string>
+	<string name="membercenter_text_njcd">ཉིའུ་ཅིན་། བོད་དབྱིན་ཚིག་མཛོད་</string>
+	<string name="membercenter_text_xlcd">ཞའོ་ལིན་གྱིས་བོད་སཾ་ཚིག་མཛོད་</string>
+	<string name="membercenter_text_endtime">དུས་ལོངས་པའི་དུས་ཚོད་:</string>
+
+	<!--我的收藏-->
+	<string name="mycollection_text_titlename">ངའི་ཉར་ཚགས་</string>
+
+
+	<!--我的优惠券-->
+	<string name="mycoupon_text_titlename">ངའི་གཟིགས་སྐྱོང་ཡི་གེ་རེད་</string>
+	<string name="mycoupon_text_getcoupon">གོང་ཁེའི་སྤ་སེ་ལེན་</string>
+	<string-array name="mycoupontitle">
+		<item>བེད་མ་སྤྱད་</item>
+		<item>བཀོལ་སྤྱོད་བྱས་།</item>
+		<item>དུས་ཚོད་ཡོལ་ཚར་།</item>
+	</string-array>
+
+	<!--领取优惠券-->
+	<string name="getcoupon_text_titlename">འཛིན་ཤོག་ལེན་ལྟེ་གནས་</string>
+	<string name="getcoupon_text_tj">བཀོལ་སྤྱོད་ཆ་རྐྱེན་：གང་བ་%སྤྱོད་རུང་</string>
+	<string name="getcoupon_text_rq">དུས་བཅད་གཏན་འཁེལ་བྱེད་：</string>
+	<string name="getcoupon_text_get">ལེན་པ་</string>
+	<string name="getcoupon_text_getover">བླངས་ཟིན་</string>
+	<!--离线数据-->
+	<string name="offlin_text_titlename">དྲ་ཐོག་ཏུ་མེད་པའི་གཞི་གྲངས་</string>
+	<string name="offlin_text_ts">དྲ་ཐོག་ཏུ་མེད་པའི་གཞི་གྲངས་ཐུམ་ཕབ་ལེན་བྱས་ན་ཁྱེད་རང་གི་དྲ་རྒྱ་མེད་ན་རམ་ཡང་ན་དྲ་རྒྱའི་ནུས་པ་ཅུང་ཞན་པའི་ཁོར་ཡུག་འོག་ལའང་རྒྱུན་གཏན་ལྟར་སྤྱོད་ལོ་ཙཱ་།</string>
+	<string name="offlin_xiaz">ལམ་སེང་ཕབ་ལེན་བྱས་།</string>
+	<string name="offlin_textyxz">ཕབ་ལེན་བྱས་ཟིན་</string>
+
+	<!--通知公告-->
+	<string name="notice_text_titlename">བརྡ་སྦྱོར་སྤྱི་བསྒྲགས་</string>
+	<string name="notice_text_nomore">མང་པོ་ཞིག་མེད་སོང་།</string>
+	<!--意见反馈-->
+	<string name="feedback_text_titlename">བསམ་འཆར་བཤད་པ་</string>
+	<string name="feedback_text_inputts">གནད་དོན་དང་བསམ་འཆར་</string>
+	<string name="feedback_text_inputhint">ཞིབ་ཕྲ་བརྗོད་རོགས་། ཁྱེད་རང་གི་གནད་དོན་དང་། ང་ཚོས་ཞབས་ཞུ་སྔར་ལས་ལེགས་པ་མཁོ་འདོན་བྱ་</string>
+	<string name="feedback_text_addimage">པར་རིས་(ཁ་སྐོང་འདེམས་།)</string>
+	<string name="feedback_btn_tij">འདོན་སྤྲོད་</string>
+
+
+	<!--设置-->
+	<string name="seting_text_titlename">གསར་འཛུགས་</string>
+	<string name="seting_text_choicelanguage">རྒྱུད་ཁོངས་སྐད་བརྡ་བརྗེ་སྤོར་</string>
+	<string name="seting_text_fy">མཉེན་ཆས་ལས་བརྒལ་བའི་ལོ་ཙཱ་</string>
+	<string name="seting_text_userandself">ཨང་རྟགས་བདེ་འཇགས་ཡིན་</string>
+	<string name="seting_text_aboutus">ང་ཚོས་སྐོར་གྱི་</string>
+	<string name="seting_text_outlogin">ཐོ་འགོད་ཕྱིར་འཐེན་</string>
+
+
+	<!--安全中心-->
+	<string name="safecenter_text_titlename">བདེ་འཇགས་ལྟེ་གནས་</string>
+	<string name="safecenter_text_phonenum">ལག་ཐོགས་ཁ་པར་གྱི་ཨང་གྲངས་</string>
+	<string name="safecenter_text_bandingwechart">སྦྲེལ་ཐུབ་སོང་། སྐད་འཕྲིན་</string>
+	<string name="safecenter_text_bandingqq">QQ ལ་སྦྲེལ་ཐུབ་སོང་།</string>
+	<string name="safecenter_text_bangding">ཟིན་སྦྲེལ་ཐུབ་སོང་།</string>
+	<string name="safecenter_text_notbangding">མ་སྦྲེལ་ཐུབ་སོང་།</string>
+
+
+
+	<!--关于我们-->
+	<string name="aboutus_text_titlename">ང་ཚོས་སྐོར་གྱི་</string>
+	<string name="aboutus_text_content">བོད་ཡིག་ཡིག་སྒྱུར་པའོ་ནི་སྐོང་ཆེད་། དགོས་མཁོ་ཉིན་རེ་བཞིན་ཡོངས་ཁྱབ་ཏུ་བོད་སྐད་ལ་སྐད་རིགས་གཞན་དག་དང་འབྲེལ་གཏུག་། གསར་སྤེལ་གྱི་ནང་གསེས་དོན་ཚན་གཅིག་བྱས་ཆོག་བོད་རྒྱ་དང་། བོད་དབྱིན་། བོད་ཚངས་པ་སོགས་ཡིག་སྒྱུར་གྱི་APP ཡོད་པ་དང་། རྒྱ་ཆེའི་བོད་རིགས་སྤུན་ཟླ་རྒྱལ་ཁབ་ཁག་གི་བོད་སྐད་སྦྱོང་རྒྱུར་དགའ་བ་བོད་སྐྱོད་ཡུལ་སྐོར་བར་དགའ་བསུ་ཞུས་པ་རེད་།</string>
+	<string name="aboutus_text_phone">བློ་འདྲི་སའི་ཁ་པར་ཨང་གྲངས་།</string>
+	<string name="aboutus_text_email">འབྲེལ་གཏུག་གི་སྦྲག་ཟམ་སྟེ་།</string>
+	<string name="aboutus_text_messageinfo">པར་དབང་ © བོད་ཡིག་ཡིག་སྒྱུར་སྤའོ་།</string>
+	<string name="aboutus_text_xieyi">《སྤྱོད་མཁན་གྱིས་ཞབས་ཞུའི་གྲོས་མཐུན་》</string>
+
+	<!--更换手机-->
+	<string name="replacephone_text_titlename">བརྗེ་བ་། ལག་ཐོགས་ཁ་པར་</string>
+	<string name="replacephone_text_oldphone">ཁྱེད་རང་ཐོ་འགོད་བྱས་པའི་ལག་ཐོགས་ཁ་པར་གྱི་ཨང་གྲངས་འབྲི་རོགས་།</string>
+	<string name="replacephone_text_newphone">ཁྱེད་རང་གི་ཁ་པར་ཨང་གྲངས་གསར་པ་འབྲི་རོགས་།</string>
+	<string name="replacephone_text_code">ར་སྤྲོད་ཨང་ནང་འཇུག་རོགས་།</string>
+	<string name="replacephone_text_uploaddata">འདོན་སྤྲོད་</string>
+
+	<!--首页翻译-->
+	<string-array name="main_translate">
+		<item>བོད་རྒྱ་</item>
+		<item>རྒྱ་བོད་</item>
+		<item>བོད་དབྱིན་</item>
+		<item>དབྱིན་བོད་</item>
+		<item>གཙང་གཙང་པོ་</item>
+		<item>བོད་ཚངས་པ་</item>
+		<item>ཧན་ཧན་</item>
+	</string-array>
+
+	<string name="helpcenter_text_titlename">རོགས་རམ་ལྟེ་གནས་</string>
+
+
+</resources>

@@ -1,0 +1,197 @@
+<resources>
+
+
+
+    <string name="app_name">藏语翻译宝</string>
+
+    <string name="help">帮助</string>
+    <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
+    <string name="quit">退出</string>
+    <string name="exite_dialog">再按一次退出程序！</string>
+    <string name="settings">设置</string>
+    <string name="choice_language_title">选择语言</string>
+    <string name="choice_language_choicetext">请选择习惯语言</string>
+    <string name="choice_language_choicebottom_text">© 藏语翻译宝</string>
+    <string name="returntext">返回</string>
+    <string name="nomessage">暂时没有内容哦</string>
+    <string name="net_error">糟糕，加载失败</string>
+    <string name="getmessage_agin">重新加载</string>
+    <string name="tackphoto">拍照</string>
+    <string name="imagelist">本地相册</string>
+    <string name="update_seccese">修改成功</string>
+    <!--主页底部导航栏-->
+
+    <string name="translate_boottom">词典</string>
+    <string name="message_boottom">翻译</string>
+    <string name="user_boottom">我的</string>
+
+    <!--登录-->
+    <string name="login_text_titlename">登录</string>
+    <string name="login_title">欢迎使用藏汉翻译宝</string>
+    <string name="login_hint_phone">请输入手机号</string>
+    <string name="login_hint_code">请输入验证码</string>
+    <string name="login_but_getcode">获取验证码</string>
+    <string name="login_but_login">确认登录</string>
+    <string name="login_text_otherlogin">第三方账号快捷登录</string>
+    <string name="login_error_notphonenumber">请输入手机号</string>
+    <string name="login_error_isnotphone">请输入正确的手机号</string>
+    <string name="login_error_notcode">请输入验证码</string>
+    <string name="login_text_bottom">《用户使用服务协议》</string>
+
+    <!--绑定手机号-->
+    <string name="bindphone_text_title">请绑定您的手机号码</string>
+    <string name="bindphone_text_titlename">绑定手机</string>
+    <string name="bindphone_but_confirm">确定绑定</string>
+
+    <!--用户使用服务协议-->
+    <string name="user_agreementment_text_tiltlemessage">用户使用服务协议</string>
+    <string name="user_agreementment_text_tiltlemessage1">公告详情</string>
+    <!--翻译-->
+    <string name="translate_text_chinese">汉语</string>
+    <string name="translate_text_zangwen">藏语</string>
+    <string name="translate_text_zanghan">藏汉</string>
+    <string name="translate_text_translate">在此输入您要查询的单词</string>
+    <string name="translate_text_netmessage">网络释义</string>
+    <string-array name="translate_choiceimage">
+        <item>藏语</item>
+        <item>汉语</item>
+        <item>英语</item>
+        <item>梵语</item>
+    </string-array>
+    <!--个人中心-->
+    <string name="userinfo_text_titlename">个人中心</string>
+    <string name="userinfo_text_vipcenter">会员中心</string>
+    <string name="userinfo_text_myfile">我的收藏</string>
+    <string name="userinfo_text_mycoupon">我的优惠券</string>
+    <string name="userinfo_text_offlinedata">离线数据</string>
+    <string name="userinfo_text_noticedata">通知公告</string>
+    <string name="userinfo_text_helpcenter">帮助中心</string>
+    <string name="userinfo_text_feedback">意见反馈</string>
+    <string name="userinfo_text_seting">设置</string>
+    <string name="userinfo_text_noadd">未添加</string>
+    <string name="userinfo_text_nobading">未绑定</string>
+
+    <!--翻译界面-->
+    <string name="translate_text_quxiao">取消</string>
+    <string name="translate_text_dialog">VIP免广告</string>
+    <string name="translate_text_tsvip">该词典仅限VIP会员专享</string>
+    <string name="translate_text_qued">确定</string>
+    <string name="translate_text_becomevip">立即成为VIP</string>
+    <string name="translate_text_nodata">没有找到结果</string>
+    <string name="translate_text_feedback">我要反馈</string>
+    <string name="translate_text_uploaderreo">我要报错</string>
+
+    <!--资讯-->
+    <string name="noticedetail_text_lookuser">阅读</string>
+    <string name="noticedetail_text_titlename">资讯详情</string>
+    <string name="noticedatail_text_iszan">您已经赞过了</string>
+
+    <!--我的资料-->
+    <string name="myuserinfo_text_titlename">我的资料</string>
+    <string name="myuserinfo_text_headimage">头像</string>
+    <string name="myuserinfo_text_username">用户名</string>
+    <string name="myuserinfo_text_sex">性别</string>
+    <string name="myuserinfo_text_educiton">学历</string>
+    <string name="myuserinfo_text_age">年龄</string>
+    <string name="myuserinfo_btn_save">保存</string>
+    <string name="myuserinfo_text_man">男</string>
+    <string name="myuserinfo_text_wuman">女</string>
+
+    <!--会员中心-->
+    <string name="membercenter_text_title">会员中心</string>
+    <string name="membercenter_text_choicetc">选择套餐</string>
+    <string name="membercenter_text_openvip">开通</string>
+    <string name="membercenter_text_day">天</string>
+    <string name="membercenter_text_botvip">你还不是会员</string>
+    <string name="membercenter_text_year">年</string>
+    <string name="membercenter_text_month">月</string>
+    <string name="membercenter_text_vipmessage">会员权益：这是一段会员权益的介绍，这是一段会员权益的介绍，这是一段会员权益的介绍，这是一段会员权益的介绍，这是一段会员权益的介绍，这是一段会员权益的介绍。</string>
+    <string name="membercenter_text_vipzx">会员专享</string>
+    <string name="membercenter_text_vipcenter">藏语宝会员中心</string>
+    <string name="membercenter_text_hzcd">新华汉藏词典</string>
+    <string name="membercenter_text_njcd">牛津藏英词典</string>
+    <string name="membercenter_text_xlcd">小林藏梵词典</string>
+    <string name="membercenter_text_endtime">到期时间:</string>
+
+    <!--我的收藏-->
+    <string name="mycollection_text_titlename">我的收藏</string>
+
+    <!--我的优惠券-->
+    <string name="mycoupon_text_titlename">我的优惠券</string>
+    <string name="mycoupon_text_getcoupon">领取优惠券</string>
+    <string-array name="mycoupontitle">
+        <item>未使用</item>
+        <item>已使用</item>
+        <item>已过期</item>
+    </string-array>
+    <!--领取优惠券-->
+    <string name="getcoupon_text_titlename">领券中心</string>
+    <string name="getcoupon_text_tj">使用条件：满%可用</string>
+    <string name="getcoupon_text_rq">截至日期：</string>
+    <string name="getcoupon_text_get">领取</string>
+    <string name="getcoupon_text_getover">已领取</string>
+    <!--离线数据-->
+    <string name="offlin_text_titlename">离线数据</string>
+    <string name="offlin_text_ts">下载离线数据包，可使您可以在没有网络或网络较差的环境下正常使用翻译功能。</string>
+    <string name="offlin_xiaz">立即下载</string>
+    <string name="offlin_textyxz">已下载</string>
+
+    <!--通知公告-->
+    <string name="notice_text_titlename">通知公告</string>
+    <string name="notice_text_nomore">没有更多了</string>
+
+    <!--意见反馈-->
+    <string name="feedback_text_titlename">意见反馈</string>
+    <string name="feedback_text_inputts">问题和意见</string>
+    <string name="feedback_text_inputhint">请详细描述您的问题，以便我们提供更好的服务</string>
+    <string name="feedback_text_addimage">图片(选填)</string>
+    <string name="feedback_btn_tij">提交</string>
+
+
+    <!--设置-->
+    <string name="seting_text_titlename">设置</string>
+    <string name="seting_text_choicelanguage">系统语言切换</string>
+    <string name="seting_text_fy">跨软件翻译</string>
+    <string name="seting_text_userandself">账号安全</string>
+    <string name="seting_text_aboutus">关于我们</string>
+    <string name="seting_text_outlogin">退出登录</string>
+
+    <!--安全中心-->
+    <string name="safecenter_text_titlename">安全中心</string>
+    <string name="safecenter_text_phonenum">手机号码</string>
+    <string name="safecenter_text_bandingwechart">绑定微信</string>
+    <string name="safecenter_text_bandingqq">绑定QQ</string>
+    <string name="safecenter_text_bangding">已绑定</string>
+    <string name="safecenter_text_notbangding">未绑定</string>
+
+
+
+    <!--关于我们-->
+    <string name="aboutus_text_titlename">关于我们</string>
+    <string name="aboutus_text_content">藏语翻译宝是为满足日益广泛的藏语和其他语言的沟通需求，开发的一款可进行藏汉、藏英、藏梵等的翻译APP，深受广大藏族同胞、各国藏语爱好者、入藏旅游人士的欢迎。</string>
+    <string name="aboutus_text_phone">咨询电话：</string>
+    <string name="aboutus_text_email">联系邮箱：</string>
+    <string name="aboutus_text_messageinfo">版权所有 © 藏语翻译宝</string>
+    <string name="aboutus_text_xieyi">《用户使用服务协议》</string>
+
+    <!--更换手机-->
+    <string name="replacephone_text_titlename">更换手机</string>
+    <string name="replacephone_text_oldphone">请输入您注册用的手机号码</string>
+    <string name="replacephone_text_newphone">请输入您的新手机号码</string>
+    <string name="replacephone_text_code">请输入验证码</string>
+    <string name="replacephone_text_uploaddata">提交</string>
+
+    <!--首页翻译-->
+    <string-array name="main_translate">
+        <item>藏汉</item>
+        <item>汉藏</item>
+        <item>藏英</item>
+        <item>英藏</item>
+        <item>藏藏</item>
+        <item>藏梵</item>
+        <item>汉汉</item>
+    </string-array>
+    <string name="helpcenter_text_titlename">帮助中心</string>
+
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:paddingTop="@dimen/dp_15">
+
+        <LinearLayout
+            android:id="@+id/ll_y_recycleview_head_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_y_recycleview_head_refresh_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12"
+                android:text="下拉刷新" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_y_recycleview_head_refresh_status"
+            android:layout_width="@dimen/dp_13"
+            android:layout_height="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_toLeftOf="@id/ll_y_recycleview_head_text"
+                android:src="@mipmap/arrow_down" />
+
+        <translatedemo.com.translatedemo.view.CircleLoadingView
+            android:id="@+id/pb_y_recycleview_head_refresh_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_toLeftOf="@id/ll_y_recycleview_head_text"
+            android:visibility="invisible"
+            app:progress_color="#49ff0000" />
+    </RelativeLayout>
+</LinearLayout>
