@@ -88,13 +88,13 @@ public class HelpCenterActivity extends BaseActivity {
         madpatr.setlistOnclickLister(new ListOnclickLister() {
             @Override
             public void onclick(View v, int position) {
-
+                HelpDetailActivity.startactivty(HelpCenterActivity.this,listdata.get(position));
             }
         });
         getdata(false);
     }
 
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }

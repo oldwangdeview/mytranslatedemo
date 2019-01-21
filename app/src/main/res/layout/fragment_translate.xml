@@ -41,6 +41,7 @@
                 android:layout_marginLeft="@dimen/dp_25"
                 android:background="@color/c_ffffff"/>
             <EditText
+                android:id="@+id/myhome_line_top_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"

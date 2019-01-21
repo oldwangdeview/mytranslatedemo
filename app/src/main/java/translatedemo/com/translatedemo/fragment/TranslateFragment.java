@@ -119,7 +119,11 @@ public class TranslateFragment extends BaseFragment {
         madpater.setlistOnclickLister(new ListOnclickLister() {
             @Override
             public void onclick(View v, int position) {
-                NoticeDetailActivity.startactivity(mContext,list.get(position));
+                if(list.get(position).type==0) {
+                    NoticeDetailActivity.startactivity(mContext, list.get(position));
+                }else{
+                    UIUtils.openWebUrl(mContext,list.get(position).url);
+                }
             }
         });
         getdata();
@@ -320,7 +324,7 @@ public class TranslateFragment extends BaseFragment {
     /**
      * 跳转到翻译
      */
-    @OnClick(R.id.myhome_line_top)
+    @OnClick({R.id.myhome_line_top,R.id.myhome_line_top_1})
     public void gotoTranslateActivity(){
         EventBus.getDefault().post(new UpdateMainIndex(3));
     }

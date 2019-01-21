@@ -4,9 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,9 +92,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
     }
 
+
+
     @Override
     protected void initData() {
         super.initData();
+
         EventBus.getDefault().register(this);
         UIUtils.showFullScreen(MainActivity.this,true);
         type = getIntent().getIntExtra(Contans.INTENT_TYPE,0);
@@ -186,17 +192,37 @@ public class MainActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void steindex(UpdateMainIndex index){
-        mViewPager.setCurrentItem(index.index,false);
-        UIUtils.showFullScreen(MainActivity.this,false);
-        updateactionbar();
+
+        if(index.index!=0) {
+            mViewPager.setCurrentItem(index.index,false);
+            Log.e("index",index.index+"");
+            UIUtils.showFullScreen(MainActivity.this, false);
+            updateactionbar();
+        }else{
+            navigation.setSelectedItemId(navigation.getMenu().getItem(index.index).getItemId());
+            mOnNavigationItemSelectedListener.onNavigationItemSelected(navigation.getMenu().getItem(index.index));
+//           new Thread(){
+//               @Override
+//               public void run() {
+//                   super.run();
+//                   UIUtils.showFullScreen(MainActivity.this, true);
+//               }
+//           }.start();
+        }
+
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+         if (keyCode == KeyEvent.KEYCODE_DEL&& event.getAction() == KeyEvent.ACTION_DOWN){
+             return true;
+         }
+
         if (keyCode == event.KEYCODE_BACK) {
             finish();
+            return true;
         }
-        return super.onKeyDown(keyCode, event);
+        return false;
 
     }
 

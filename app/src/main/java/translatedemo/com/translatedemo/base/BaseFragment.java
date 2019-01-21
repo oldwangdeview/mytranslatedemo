@@ -72,18 +72,18 @@ public abstract class BaseFragment extends Fragment {
      */
     public abstract View initView(Context context);
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mUnbinder.unbind();
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
-    }
-
-    @Override
-    public void onPause() {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
-        super.onPause();
-    }
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        mUnbinder.unbind();
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
+//        super.onPause();
+//    }
 
     @Override
     public void onDestroy() {

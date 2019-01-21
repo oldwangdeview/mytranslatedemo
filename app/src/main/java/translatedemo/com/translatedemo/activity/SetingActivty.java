@@ -61,7 +61,7 @@ public class SetingActivty extends BaseActivity {
         editor.apply();
         EventBus.getDefault().post(new OverMainactivty());
         ChoiceLanguageActivity.startactivity(this);
-        finish();
+//        finish();
     }
 
     /**
@@ -81,7 +81,7 @@ public class SetingActivty extends BaseActivity {
     }
 
 
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }

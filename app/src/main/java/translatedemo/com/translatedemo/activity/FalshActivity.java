@@ -2,6 +2,9 @@ package translatedemo.com.translatedemo.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -32,6 +35,8 @@ public class FalshActivity  extends BaseActivity{
     protected void initView() {
 
     }
+
+
 
     @Override
     protected void initData() {

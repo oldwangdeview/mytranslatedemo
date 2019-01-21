@@ -88,7 +88,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
-            android:screenOrientation="portrait"></activity>
+            ></activity>
         <!--翻译activity-->
         <activity android:name=".activity.TranslateActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
@@ -139,6 +139,9 @@
 
         <!--帮助中心-->
         <activity android:name=".activity.HelpCenterActivity"
+            android:screenOrientation="portrait"/>
+        <!--帮助详情-->
+        <activity android:name=".activity.HelpDetailActivity"
             android:screenOrientation="portrait"/>
 
         <!--配置第三方-->

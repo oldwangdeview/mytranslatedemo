@@ -167,9 +167,11 @@ public class UserinfoActivity extends BaseActivity{
             switch (Integer.parseInt(user.sex)){
                 case 1:
                     sex_editext.setText(this.getResources().getString(R.string.myuserinfo_text_man));
+                    sextype = 1;
                     break;
                 case 2:
                     sex_editext.setText(this.getResources().getString(R.string.myuserinfo_text_wuman));
+                    sextype = 2;
                     break;
                 case 3:
 
@@ -428,7 +430,7 @@ public class UserinfoActivity extends BaseActivity{
         Intent mIntent = new Intent(mContext,UserinfoActivity.class);
         mContext.startActivity(mIntent);
     }
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }

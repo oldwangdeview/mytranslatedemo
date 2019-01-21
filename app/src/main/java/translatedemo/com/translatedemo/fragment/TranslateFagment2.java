@@ -20,6 +20,8 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,7 @@ import translatedemo.com.translatedemo.bean.ListBean_information;
 import translatedemo.com.translatedemo.bean.StatusCode;
 import translatedemo.com.translatedemo.bean.TranslateBean;
 import translatedemo.com.translatedemo.contans.Contans;
+import translatedemo.com.translatedemo.eventbus.UpdateMainIndex;
 import translatedemo.com.translatedemo.http.HttpUtil;
 import translatedemo.com.translatedemo.http.ProgressSubscriber;
 import translatedemo.com.translatedemo.http.RxHelper;
@@ -124,7 +127,7 @@ public class TranslateFagment2  extends BaseFragment {
             public void onclick(View v, int position) {
                 translate_linyout.removeAllViews();
                 choicecd = listdata.get(position);
-                if(listdata.get(position).isMemberVisible==1){
+                if(listdata.get(position).isMemberVisible==1&&BaseActivity.getuser().isMember==0){
                     translate_linyout.addView(becomeview);
                 }else{
 
@@ -164,6 +167,7 @@ public class TranslateFagment2  extends BaseFragment {
                     }
 
                 }else{
+                    EventBus.getDefault().post(new UpdateMainIndex(0));
                     return;
                 }
             }

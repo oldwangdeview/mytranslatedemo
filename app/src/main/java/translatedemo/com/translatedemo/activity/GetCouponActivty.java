@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,7 @@ import translatedemo.com.translatedemo.bean.GetCouponListBean;
 import translatedemo.com.translatedemo.bean.InformationBean;
 import translatedemo.com.translatedemo.bean.StatusCode;
 import translatedemo.com.translatedemo.contans.Contans;
+import translatedemo.com.translatedemo.eventbus.UpdateCuponEvent;
 import translatedemo.com.translatedemo.http.HttpUtil;
 import translatedemo.com.translatedemo.http.ProgressSubscriber;
 import translatedemo.com.translatedemo.http.RxHelper;
@@ -188,6 +191,7 @@ public class GetCouponActivty  extends BaseActivity {
                 new LogUntil(GetCouponActivty.this,TAG+"getcoupon",new Gson().toJson(stringStatusCode));
                 LoadingDialogUtils.closeDialog(mLoadingDialog);
                 ToastUtils.makeText(GetCouponActivty.this.getResources().getString(R.string.getcoupon_text_getover));
+                EventBus.getDefault().post(new UpdateCuponEvent());
                 retry();
             }
 
@@ -204,7 +208,7 @@ public class GetCouponActivty  extends BaseActivity {
         Intent mIntent = new Intent(mContext,GetCouponActivty.class);
         mContext.startActivity(mIntent);
     }
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }

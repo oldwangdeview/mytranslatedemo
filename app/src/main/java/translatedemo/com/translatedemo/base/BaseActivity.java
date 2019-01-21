@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -46,7 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE);
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE);
+        Log.e("qidongactiity",TAG);
         super.onCreate(savedInstanceState);
     /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -71,6 +73,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     }
+
 
     public static LoginBean getuser(){
         try {
@@ -155,25 +158,26 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
-        if (mUnbinder!=null){
-            mUnbinder.unbind();
-        }
+        Log.e("qidongactiity","onDestroy"+TAG);
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
+//        if (mUnbinder!=null){
+//            mUnbinder.unbind();
+//        }
 
     }
-    @Override
-    protected void onPause() {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.STOP);
-
-        super.onStop();
-    }
+//    @Override
+//    protected void onPause() {
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
+//        super.onPause();
+//
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        lifecycleSubject.onNext(ActivityLifeCycleEvent.STOP);
+//
+//        super.onStop();
+//    }
 
     @Override
     protected void onResume() {
@@ -225,4 +229,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         return  LAGEVAGETYPE;
     }
+
+
 }

@@ -162,7 +162,7 @@ public interface Api {
      * @param id
      * @return
      */
-    @GET("/coupon/receiveCoupon")
+    @POST("/coupon/receiveCoupon")
     Observable<StatusCode<Object>> receiveCoupon(
             @Query("id") String id,
             @Query("userId") String userId,

@@ -70,7 +70,7 @@ public class MyCuponAdpater  extends BaseRecycleAdapter<GetCouponListBean> {
         }
 
 
-        holder.getItemView(R.id.btn)
+        holder.getView()
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

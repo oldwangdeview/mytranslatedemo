@@ -38,6 +38,8 @@ public class HelpDetailActivity extends BaseActivity {
     TextView iv_back_activity_text;
     @BindView(R.id.tv_title_activity_baseperson)
     TextView title_name;
+    @BindView(R.id.title_text_data)
+    TextView title;
     private Helpcenter_ListBean mdata;
     @Override
     protected void initView() {
@@ -50,7 +52,11 @@ public class HelpDetailActivity extends BaseActivity {
         iv_back_activity_text.setVisibility(View.VISIBLE);
         title_name.setText(this.getResources().getString(R.string.helpcenter_text_titlename));
         mdata = (Helpcenter_ListBean)getIntent().getSerializableExtra(Contans.INTENT_DATA);
+        if(!TextUtils.isEmpty(mdata.field)){
+            title.setText(mdata.field);
+        }
         if(!TextUtils.isEmpty(mdata.content)){
+
             HtmlText.from(mdata.content)
                     .setImageLoader(new HtmlImageLoader() {
                         @Override
@@ -114,7 +120,7 @@ public class HelpDetailActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }

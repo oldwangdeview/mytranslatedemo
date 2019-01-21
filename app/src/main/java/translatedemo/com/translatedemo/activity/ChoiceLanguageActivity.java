@@ -21,6 +21,7 @@ public class ChoiceLanguageActivity extends BaseActivity{
     protected void initView() {
         setContentView(R.layout.activity_choicelanguage);
     }
+
     @OnClick({R.id.chunaese,R.id.zangwen})
     public void onclick(View view){
         SharedPreferences preferences = getSharedPreferences("language", Context.MODE_PRIVATE);
@@ -52,9 +53,10 @@ public class ChoiceLanguageActivity extends BaseActivity{
           if(!TextUtils.isEmpty(PreferencesUtils.getInstance().getString(BaseActivity.LOGINUSER,""))){
               MainActivity.startactivity(this,1);
               finish();
+          }else {
+              LoginActivity.startactivity(this);
+              finish();
           }
-          LoginActivity.startactivity(this);
-          finish();
         }
 
 

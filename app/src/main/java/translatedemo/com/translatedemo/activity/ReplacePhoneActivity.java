@@ -158,7 +158,7 @@ public class ReplacePhoneActivity  extends BaseActivity {
         Intent mIntent = new Intent(mContext,ReplacePhoneActivity.class);
         mContext.startActivity(mIntent);
     }
-    @OnClick(R.id.iv_back_activity_text)
+    @OnClick({R.id.iv_back_activity_text,R.id.iv_back_activity_basepersoninfo})
     public void finishactivity(){
         finish();
     }
