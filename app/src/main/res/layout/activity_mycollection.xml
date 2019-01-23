@@ -12,12 +12,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:descendantFocusability="blocksDescendants"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:background="@color/c_f5f5f5"
         android:layout_height="match_parent">
         <translatedemo.com.translatedemo.view.YRecycleview
             android:layout_width="match_parent"
             android:id="@+id/yrecycleview_"
+            android:background="@color/c_f5f5f5"
             android:layout_height="match_parent"/>
     </RelativeLayout>
 

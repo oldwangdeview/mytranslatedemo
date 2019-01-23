@@ -21,22 +21,27 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindArray;
 import butterknife.BindView;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import translatedemo.com.translatedemo.R;
+import translatedemo.com.translatedemo.activity.FeedBackActivity;
 import translatedemo.com.translatedemo.activity.OffLineActivity;
 import translatedemo.com.translatedemo.adpater.TanslateTitleAdpater;
 import translatedemo.com.translatedemo.adpater.TranslateBottomAdpater;
 import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.base.BaseFragment;
+import translatedemo.com.translatedemo.bean.CollectionListbean;
 import translatedemo.com.translatedemo.bean.DictionaryBean;
 import translatedemo.com.translatedemo.bean.InformationBean;
 import translatedemo.com.translatedemo.bean.ListBean_information;
@@ -76,6 +81,13 @@ public class TranslateFagment2  extends BaseFragment {
     EditText input_editext_titl;
     @BindView(R.id.title_btn)
     TextView title_btn;
+    @BindView(R.id.input_text)
+    EditText input_text;
+    @BindView(R.id.translate_iamge)
+    ImageView translate_iamge;
+    @BindView(R.id.shouc_image)
+    ImageView shouc_image;
+
     private List<String> titlelistdata = new ArrayList<>();
     TanslateTitleAdpater madpater;
     private int clickindex = 0;
@@ -84,7 +96,10 @@ public class TranslateFagment2  extends BaseFragment {
     private TranslateBottomAdpater translatebottomadpater;
     private View becomeview;
     private DictionaryBean choicecd = null;
-
+    private View translate_requestdata;
+    private View momessage_view;
+    private LinearLayout data;
+    private boolean isshouc = false;
 
     @Override
     public View initView(Context context) {
@@ -97,6 +112,7 @@ public class TranslateFagment2  extends BaseFragment {
         for(int i =0;i<myOrderTitles.length;i++){
             titlelistdata.add(myOrderTitles[i]);
         }
+        EventBus.getDefault().register(TranslateFagment2.this);
         clickindex = PreferencesUtils.getInstance().getInt(Contans.PERFICE_TRANSLATE_TITLE_CLICK,0);
         madpater = new TanslateTitleAdpater(mContext,titlelistdata,clickindex);
         madpater.setlistOnclickLister(new ListOnclickLister() {
@@ -122,6 +138,9 @@ public class TranslateFagment2  extends BaseFragment {
         bottom_recyclerview.setItemAnimator(new DefaultItemAnimator());
         bottom_recyclerview.setAdapter(translatebottomadpater);
         becomeview = UIUtils.inflate(mContext,R.layout.translate_becomevip_layout);
+        translate_requestdata = UIUtils.inflate(mContext,R.layout.translate_tansrequest_layout);
+        momessage_view = UIUtils.inflate(mContext,R.layout.translate_nomessagedata);
+        data = translate_requestdata.findViewById(R.id.data);
         translatebottomadpater.setlistOnclickLister(new ListOnclickLister() {
             @Override
             public void onclick(View v, int position) {
@@ -130,10 +149,28 @@ public class TranslateFagment2  extends BaseFragment {
                 if(listdata.get(position).isMemberVisible==1&&BaseActivity.getuser().isMember==0){
                     translate_linyout.addView(becomeview);
                 }else{
-
+                    String inputString = input_editext_titl.getText().toString().trim();
+                    if(!TextUtils.isEmpty(inputString)) {
+                        translatecontent(inputString,clickindex+1,choicecd.id);
+                    }
                 }
             }
         });
+
+        translate_requestdata.findViewById(R.id.bottom_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FeedBackActivity.startactivity(mContext);
+            }
+        });
+
+        momessage_view.findViewById(R.id.fanhui_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FeedBackActivity.startactivity(mContext);
+            }
+        });
+
         input_editext_titl.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -150,6 +187,8 @@ public class TranslateFagment2  extends BaseFragment {
                 String inputString = input_editext_titl.getText().toString().trim();
                 if(!TextUtils.isEmpty(inputString)){
                     title_btn.setText(mContext.getResources().getString(R.string.translate_text_qued));
+                    translate_iamge.setVisibility(View.GONE);
+                    requst_data = null;
                 }else{
                     title_btn.setText(mContext.getResources().getString(R.string.translate_text_quxiao));
                 }
@@ -163,6 +202,7 @@ public class TranslateFagment2  extends BaseFragment {
 
                     String inputString = input_editext_titl.getText().toString().trim();
                     if(choicecd!=null){
+                        input_text.setText(inputString);
                         translatecontent(inputString,clickindex+1,choicecd.id);
                     }
 
@@ -287,6 +327,8 @@ public class TranslateFagment2  extends BaseFragment {
      * @param contengt
      * @param type
      */
+
+    private TranslateBean requst_data;
     private void translatecontent(String contengt,int type,int daviceid){
         Observable observable =
                 ApiUtils.getApi().translateconttent(BaseActivity.getuser().id+"",BaseActivity.getLanguetype(mContext),type,contengt,daviceid)
@@ -313,14 +355,51 @@ public class TranslateFagment2  extends BaseFragment {
             protected void _onNext(StatusCode<TranslateBean> stringStatusCode) {
                 new LogUntil(mContext,TAG+"translateconttent",new Gson().toJson(stringStatusCode));
                 LoadingDialogUtils.closeDialog(mLoadingDialog);
-
+                if(stringStatusCode!=null&&stringStatusCode.getData()!=null){
+                    if(requst_data!=null&&requst_data.id==stringStatusCode.getData().id){
+                        if(isshouc){
+                            shouc_image.setImageResource(R.mipmap.shoucang2);
+                        }
+                    }else{
+                        shouc_image.setImageResource(R.mipmap.shoucang1);
+                        isshouc = false;
+                    }
+                    requst_data = stringStatusCode.getData();
+                    translate_linyout.removeAllViews();
+                    data.removeAllViews();
+                    String translateResult = stringStatusCode.getData().translateResult;
+                    if(!TextUtils.isEmpty(translateResult)) {
+                        if (translateResult.indexOf(";") > 0) {
+                            String[] line = translateResult.split(";");
+                            for (int i = 0; i < line.length; i++) {
+                               View textv = UIUtils.inflate(mContext,R.layout.layout_text);
+                               TextView textView = textv.findViewById(R.id.text);
+                               textView.setText((i+1)+". "+line[i]);
+                               data.addView(textv);
+                            }
+                        }else{
+                            View textv = UIUtils.inflate(mContext,R.layout.layout_text);
+                            TextView textView = textv.findViewById(R.id.text);
+                            textView.setText("1. "+translateResult);
+                            data.addView(textv);
+                        }
+                    }
+                    translate_linyout.addView(translate_requestdata);
+                    if(!TextUtils.isEmpty(requst_data.image)){
+                        translate_iamge.setVisibility(View.VISIBLE);
+                        UIUtils.loadImageView(mContext,requst_data.image,translate_iamge);
+                    }
+                }
 
             }
 
             @Override
             protected void _onError(String message) {
-
-                ToastUtils.makeText(message);
+                 translate_linyout.removeAllViews();
+                 TextView text1 = momessage_view.findViewById(R.id.text);
+                text1.setText(message);
+                translate_linyout.addView(momessage_view);
+//                ToastUtils.makeText(message);
                 LoadingDialogUtils.closeDialog(mLoadingDialog);
 
             }
@@ -362,5 +441,87 @@ public class TranslateFagment2  extends BaseFragment {
     public void onPause() {
         super.onPause();
         mConvenientBanner.stopTurning();
+    }
+    @OnClick(R.id.shouc_image)
+    public void shouc(){
+        if(!isshouc){
+            if(requst_data!=null) {
+                collectionDictionary();
+            }
+        }
+        isshouc = true;
+
+    }
+
+    private void collectionDictionary(){
+        Observable observable =
+                ApiUtils.getApi().collectionDictionary(BaseActivity.getLanguetype(mContext),BaseActivity.getuser().id+"",clickindex+1,input_editext_titl.getText().toString().trim(),requst_data.translateResult,choicecd.id+"","0")
+                        .compose(RxHelper.getObservaleTransformer())
+                        .doOnSubscribe(new Consumer<Disposable>() {
+                            @Override
+                            public void accept(Disposable disposable) throws Exception {
+                                try {
+
+
+                                    if (mLoadingDialog == null) {
+                                        mLoadingDialog = LoadingDialogUtils.createLoadingDialog(mContext, "");
+                                    }
+                                    LoadingDialogUtils.show(mLoadingDialog);
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                        .subscribeOn(AndroidSchedulers.mainThread());
+
+        HttpUtil.getInstance().toSubscribe(observable, new ProgressSubscriber<Object>(mContext) {
+            @Override
+            protected void _onNext(StatusCode<Object> stringStatusCode) {
+                new LogUntil(mContext,TAG+"zixunmessage",new Gson().toJson(stringStatusCode));
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+                shouc_image.setImageResource(R.mipmap.shoucang2);
+
+            }
+
+            @Override
+            protected void _onError(String message) {
+
+                ToastUtils.makeText(message);
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+
+            }
+        }, "", lifecycleSubject, false, true);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setdata(CollectionListbean mdata){
+        input_editext_titl.setText(mdata.content);
+        translate_linyout.removeAllViews();
+        input_text.setText(mdata.content);
+        data.removeAllViews();
+        isshouc = true;
+        shouc_image.setImageResource(R.mipmap.shoucang2);
+        String translateResult = mdata.translateContent;
+        if(!TextUtils.isEmpty(translateResult)) {
+            if (translateResult.indexOf(";") > 0) {
+                String[] line = translateResult.split(";");
+                for (int i = 0; i < line.length; i++) {
+                    View textv = UIUtils.inflate(mContext,R.layout.layout_text);
+                    TextView textView = textv.findViewById(R.id.text);
+                    textView.setText((i+1)+". "+line[i]);
+                    data.addView(textv);
+                }
+            }else{
+                View textv = UIUtils.inflate(mContext,R.layout.layout_text);
+                TextView textView = textv.findViewById(R.id.text);
+                textView.setText("1. "+translateResult);
+                data.addView(textv);
+            }
+        }
+        translate_linyout.addView(translate_requestdata);
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(TranslateFagment2.this);
     }
 }

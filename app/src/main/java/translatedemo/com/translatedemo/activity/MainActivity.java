@@ -189,11 +189,12 @@ public class MainActivity extends BaseActivity {
             imageDir.mkdirs();
         }
     }
-
+    private int mindex = 0;
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void steindex(UpdateMainIndex index){
 
         if(index.index!=0) {
+            mindex = index.index;
             mViewPager.setCurrentItem(index.index,false);
             Log.e("index",index.index+"");
             UIUtils.showFullScreen(MainActivity.this, false);
@@ -201,13 +202,7 @@ public class MainActivity extends BaseActivity {
         }else{
             navigation.setSelectedItemId(navigation.getMenu().getItem(index.index).getItemId());
             mOnNavigationItemSelectedListener.onNavigationItemSelected(navigation.getMenu().getItem(index.index));
-//           new Thread(){
-//               @Override
-//               public void run() {
-//                   super.run();
-//                   UIUtils.showFullScreen(MainActivity.this, true);
-//               }
-//           }.start();
+
         }
 
     }
@@ -219,7 +214,12 @@ public class MainActivity extends BaseActivity {
          }
 
         if (keyCode == event.KEYCODE_BACK) {
-            finish();
+             if(mindex!=0){
+                 navigation.setSelectedItemId(navigation.getMenu().getItem(0).getItemId());
+                 mOnNavigationItemSelectedListener.onNavigationItemSelected(navigation.getMenu().getItem(0));
+             }else {
+                 finish();
+             }
             return true;
         }
         return false;

@@ -11,6 +11,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import translatedemo.com.translatedemo.bean.CollectionBean;
 import translatedemo.com.translatedemo.bean.ConfigBean;
 import translatedemo.com.translatedemo.bean.DictionaryBean;
 import translatedemo.com.translatedemo.bean.DucationBean;
@@ -273,6 +274,35 @@ public interface Api {
             @Query("size")int size
     );
 
+    /**
+     * 收藏单词句子
+     */
+    @POST("/dictionary/collectionDictionary")
+    Observable<StatusCode<Object>> collectionDictionary(
+            @Query("languageType")int languageType,
+            @Query("userId")String userId,
+            @Query("type")int type,
+            @Query("content")String content,
+            @Query("translateContent")String translateContent,
+            @Query("dictionaryId")String dictionaryId,
+            @Query("isWord")String isWord
+    );
+
+    /**
+     * 获取收藏
+     * @param languageType
+     * @param userId
+     * @param page
+     * @param size
+     * @return
+     */
+    @GET("/dictionary/getUserCollectionDictionary")
+    Observable<StatusCode<CollectionBean>> getUserCollectionDictionary(
+            @Query("languageType")int languageType,
+            @Query("userId")String userId,
+            @Query("page")int page,
+            @Query("size")int size
+    );
 
 }
 

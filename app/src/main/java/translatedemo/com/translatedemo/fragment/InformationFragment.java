@@ -259,7 +259,7 @@ public class InformationFragment extends BaseFragment {
              @Override
              protected void _onError(String message) {
 
-                 ToastUtils.makeText(message);
+
 
 
              }
