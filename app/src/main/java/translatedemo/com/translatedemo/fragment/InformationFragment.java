@@ -1,7 +1,11 @@
 package translatedemo.com.translatedemo.fragment;
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -9,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -16,7 +21,14 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindArray;
 import butterknife.BindView;
@@ -25,11 +37,20 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import translatedemo.com.translatedemo.R;
 import translatedemo.com.translatedemo.activity.UserinfoActivity;
 import translatedemo.com.translatedemo.adpater.ChoiceLangvageAdpater;
 import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.base.BaseFragment;
+import translatedemo.com.translatedemo.bean.CollectionListbean;
 import translatedemo.com.translatedemo.bean.InformationBean;
 import translatedemo.com.translatedemo.bean.ListBean_information;
 import translatedemo.com.translatedemo.bean.StatusCode;
@@ -65,12 +86,19 @@ public class InformationFragment extends BaseFragment {
 
     @BindView(R.id.input_editet)
     EditText input_editet;
+    @BindArray(R.array.main_translate)
+    String[] myOrderTitles;
+    @BindView(R.id.data)
+    LinearLayout data;
     private Dialog mLoadingDialog;
     private ChoiceLangageDialog choicelangage1,choicelangage2;
     private ChoiceLangvageAdpater chiceadpater1,chiceadpater2;
-
+    private View tanslaterequest;
     private String inoputtexttype = "";
     private String outputexttype = "" ;
+    private TextView content;
+    private ImageView shoucangimage;
+
     @Override
     public View initView(Context context) {
         return UIUtils.inflate(mContext, R.layout.fragment_information);
@@ -79,30 +107,43 @@ public class InformationFragment extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
+        EventBus.getDefault().register(this);
         chiceadpater1 = new ChoiceLangvageAdpater(mContext,choicedata);
         chiceadpater2 = new  ChoiceLangvageAdpater(mContext,choicedata);
+        tanslaterequest = UIUtils.inflate(mContext,R.layout.layout_translate_request);
+        shoucangimage = tanslaterequest.findViewById(R.id.shouc_image);
+        content = tanslaterequest.findViewById(R.id.text);
+        tanslaterequest.findViewById(R.id.shouc_image).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                collectionDictionary(input_editet.getText().toString().trim());
+            }
+        });
+        tanslaterequest.findViewById(R.id.fuzhi_image).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+// 创建普通字符型ClipData
+                    String text = content.getText().toString().trim();
+                    ClipData mClipData = ClipData.newPlainText("Label", text);
+// 将ClipData内容放到系统剪贴板里。
+                    cm.setPrimaryClip(mClipData);
+                    ToastUtils.makeText("已复制");
+                }catch (Exception e){
+
+                }
+            }
+        });
+
         chiceadpater1.steonitemclicklister(new ListOnclickLister() {
             @Override
             public void onclick(View v, int position) {
                 Choice_text1.setText(choicedata[position]);
                 if(choicelangage1!=null){
                     choicelangage1.dismiss();
+                }
 
-                }
-                switch (position){
-                    case 0:
-                        inoputtexttype = "bo";
-                        break;
-                    case 1:
-                        inoputtexttype = "zh-cn";
-                        break;
-                    case 2:
-                        inoputtexttype = "en";
-                        break;
-                    case 3:
-                        inoputtexttype = "zh-cn";
-                        break;
-                }
             }
         });
         chiceadpater2.steonitemclicklister(new ListOnclickLister() {
@@ -111,22 +152,8 @@ public class InformationFragment extends BaseFragment {
                 Choice_text2.setText(choicedata[position]);
                 if(choicelangage2!=null){
                     choicelangage2.dismiss();
+                }
 
-                }
-                switch (position){
-                    case 0:
-                        outputexttype = "bo";
-                        break;
-                    case 1:
-                        outputexttype = "zh-cn";
-                        break;
-                    case 2:
-                        outputexttype = "en";
-                        break;
-                    case 3:
-                        outputexttype = "zh-cn";
-                        break;
-                }
             }
         });
         input_editet.addTextChangedListener(new TextWatcher() {
@@ -143,12 +170,65 @@ public class InformationFragment extends BaseFragment {
             @Override
             public void afterTextChanged(Editable s) {
                    String content = input_editet.getText().toString().trim();
-                   if(!TextUtils.isEmpty(content)&&!TextUtils.isEmpty(outputexttype)){
-                       translatedata(content,outputexttype);
+                   try {
+                       content = new String(content.getBytes(), "utf-8");
+                   }catch (Exception e){
+
+                   }
+                   String inputdata = Choice_text1.getText().toString().trim();
+                   String outputdata = Choice_text2.getText().toString().trim();
+                   if(!TextUtils.isEmpty(content)&&!TextUtils.isEmpty(inputdata)&&!TextUtils.isEmpty(outputdata)){
+                       translatedata(URLEncoder.encode(content),getoutputtype(inputdata,outputdata));
+                   }else{
+                       data.removeAllViews();
                    }
             }
         });
-        getbannerdata();
+        if(BaseActivity.getuser().isMember==0) {
+            getbannerdata();
+        }
+    }
+
+    private String getoutputtype(String input,String outpout){
+        String type = "";
+        if(!TextUtils.isEmpty(input)&&!TextUtils.isEmpty(outpout)){
+            type = getlangvagetype(input)+"_"+getlangvagetype(outpout);
+        }
+        return type;
+    }
+
+    private int clickindex(String input,String outpout){
+           String data = input.replace("语","")+outpout.replace("语","");
+           for(int i =0;i<myOrderTitles.length;i++){
+               if(data.equals(myOrderTitles[i])){
+                   return i+1;
+               }
+           }
+           return -1;
+    }
+    private String getlangvagetype(String data){
+        String outputexttype = "";
+        for(int i=0;i<choicedata.length;i++){
+            if(data.equals(choicedata[i])){
+                switch (i){
+                    case 0:
+                        outputexttype = "bo";
+                        break;
+                    case 1:
+                        outputexttype = "zh-cn";
+                        break;
+                    case 2:
+                        outputexttype = "en";
+                        break;
+                    case 3:
+                        outputexttype = "zh-cn";
+                        break;
+                }
+            }else{
+                continue;
+            }
+        }
+        return outputexttype;
     }
 
     @OnClick({R.id.choice_text1,R.id.choice_text2})
@@ -241,29 +321,26 @@ public class InformationFragment extends BaseFragment {
 
     }
 
-     private void translatedata(String content,String outputexttype){
-         Observable observable =
-                 TranslateApiUtils.getApi().translateconttent(outputexttype,content)
-                         .compose(RxHelper.getObservaleTransformer())
-                         .subscribeOn(AndroidSchedulers.mainThread());
-
-         HttpUtil.getInstance().toSubscribe(observable, new ProgressSubscriber<String>(mContext) {
+     private void translatedata(final String content,final String outputexttype){
+         new LogUntil(mContext,TAG+"content",content);
+         new LogUntil(mContext,TAG+"outputexttype",outputexttype);
+//         if (mLoadingDialog == null) {
+//             mLoadingDialog = LoadingDialogUtils.createLoadingDialog(mContext, "");
+//         }
+//         LoadingDialogUtils.show(mLoadingDialog);
+         new Thread(){
              @Override
-             protected void _onNext(StatusCode<String> stringStatusCode) {
-                 new LogUntil(mContext,TAG+"zixunmessage",new Gson().toJson(stringStatusCode));
-
-
+             public void run() {
+                 super.run();
+                 try {
+                     okPost(outputexttype,content);
+                 }catch (Exception e){
+                     new LogUntil(mContext,TAG+"content",e.getMessage());
+                 }
 
              }
+         }.start();
 
-             @Override
-             protected void _onError(String message) {
-
-
-
-
-             }
-         }, "", lifecycleSubject, false, true);
      }
 
 
@@ -280,7 +357,7 @@ public class InformationFragment extends BaseFragment {
         @Override
         public void UpdateUI(Context context, int position, ListBean_information data) {
             imageView = mhandeview.findViewById(R.id.image);
-            Log.e("imageurl",data.image);
+
             final  String weburl = data.url;
             UIUtils.loadImageViewRoud(mContext,data.image,imageView,UIUtils.dip2px(15));
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -298,9 +375,117 @@ public class InformationFragment extends BaseFragment {
         mConvenientBanner.startTurning(3000);
     }
 
+    private String mdata = "";
+    Handler mhandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.arg1==101){
+                 mdata = msg.obj+"";
+                data.removeAllViews();
+
+                new LogUntil(mContext,TAG+"zixunmessage_xxx",mdata);
+                if(mdata.indexOf("[ERR]")>=0){
+
+                }else{
+                    content.setText(mdata);
+                    data.addView(tanslaterequest);
+                }
+            }
+        }
+    };
     @Override
     public void onPause() {
         super.onPause();
         mConvenientBanner.stopTurning();
+    }
+     private void okPost(String outputtype, String data) throws IOException {
+        String path = "https://nmt.xmu.edu.cn/nmt"+"?lang="+outputtype+"&src="+data;
+
+      OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(5, TimeUnit.MINUTES)
+                .readTimeout(5, TimeUnit.MINUTES)
+                .build();
+        Request request = new Request.Builder()
+                .url(path)
+                .get()
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Message msg = new Message();
+                msg.obj = string;
+                msg.arg1 = 101;
+                mhandler.sendMessage(msg);
+            }
+        });
+//        return response.body().string();
+    }
+
+    /**
+     * 收藏
+     */
+
+   private String minputdata = "";
+    private void collectionDictionary(String inoutdata){
+        if(minputdata.equals(inoutdata)){
+            return;
+        }else{
+            minputdata = inoutdata;
+        }
+        Observable observable =
+                ApiUtils.getApi().collectionDictionary(BaseActivity.getLanguetype(mContext),BaseActivity.getuser().id+"",clickindex(Choice_text1.getText().toString().trim(),Choice_text1.getText().toString().trim()),inoutdata,mdata,"","0")
+                        .compose(RxHelper.getObservaleTransformer())
+                        .doOnSubscribe(new Consumer<Disposable>() {
+                            @Override
+                            public void accept(Disposable disposable) throws Exception {
+                                try {
+
+
+                                    if (mLoadingDialog == null) {
+                                        mLoadingDialog = LoadingDialogUtils.createLoadingDialog(mContext, "");
+                                    }
+                                    LoadingDialogUtils.show(mLoadingDialog);
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                        .subscribeOn(AndroidSchedulers.mainThread());
+
+        HttpUtil.getInstance().toSubscribe(observable, new ProgressSubscriber<Object>(mContext) {
+            @Override
+            protected void _onNext(StatusCode<Object> stringStatusCode) {
+                new LogUntil(mContext,TAG+"zixunmessage",new Gson().toJson(stringStatusCode));
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+                shoucangimage.setImageResource(R.mipmap.shoucang2);
+
+            }
+
+            @Override
+            protected void _onError(String message) {
+
+                ToastUtils.makeText(message);
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+
+            }
+        }, "", lifecycleSubject, false, true);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setdata(CollectionListbean mdata) {
+        input_editet.setText(mdata.content);
     }
 }

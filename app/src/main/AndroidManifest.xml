@@ -87,7 +87,7 @@
         <!--主页-->
         <activity
             android:name=".activity.MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             ></activity>
         <!--翻译activity-->
         <activity android:name=".activity.TranslateActivity"

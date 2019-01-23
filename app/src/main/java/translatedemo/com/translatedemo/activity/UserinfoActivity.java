@@ -182,7 +182,7 @@ public class UserinfoActivity extends BaseActivity{
             age_editext.setText(user.age);
         }
         if(!TextUtils.isEmpty(user.education)){
-            age_editext.setText(user.education);
+            ducation_editext.setText(user.education);
         }
 
     }

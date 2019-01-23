@@ -105,9 +105,9 @@ public class MyCollectionActivity  extends BaseActivity {
             public void onclick(View v, int position) {
                 EventBus.getDefault().post(listdata.get(position));
                 if(0==listdata.get(position).isword){
-                    EventBus.getDefault().post(new UpdateMainIndex(3));
-                }else{
                     EventBus.getDefault().post(new UpdateMainIndex(1));
+                }else{
+                    EventBus.getDefault().post(new UpdateMainIndex(3));
                 }
                 finish();
             }

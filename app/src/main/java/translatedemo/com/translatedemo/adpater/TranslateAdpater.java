@@ -5,6 +5,7 @@ import android.media.Image;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class TranslateAdpater extends BaseRecycleAdapter<ListBean_information>{
     TextView title;
     TextView User;
     TextView time;
+    LinearLayout informatin_ll;
+    ImageView image_adv;
     ListOnclickLister mlister;
     public TranslateAdpater(Context context, List<ListBean_information> datas) {
         super(context, datas, R.layout.item_translate);
@@ -37,6 +40,19 @@ public class TranslateAdpater extends BaseRecycleAdapter<ListBean_information>{
         title = holder.getItemView(R.id.title);
         User = holder.getItemView(R.id.user);
         time = holder.getItemView(R.id.time);
+        informatin_ll = holder.getItemView(R.id.informatin_ll);
+        image_adv = holder.getItemView(R.id.image_adv);
+
+        if (s.type == 0){
+            informatin_ll.setVisibility(View.VISIBLE);
+            image_adv.setVisibility(View.GONE);
+
+        }else {
+            informatin_ll.setVisibility(View.GONE);
+            image_adv.setVisibility(View.VISIBLE);
+            UIUtils.loadImageView(mContext,s.image,image_adv);
+        }
+
 
         if(!TextUtils.isEmpty(s.image)){
             image.setVisibility(View.VISIBLE);

@@ -79,6 +79,7 @@
     <string name="translate_text_becomevip">立即成为VIP</string>
     <string name="translate_text_nodata">没有找到结果</string>
     <string name="translate_text_feedback">我要反馈</string>
+    <string name="translate_text_popletranslate">人工翻译</string>
     <string name="translate_text_uploaderreo">我要报错</string>
 
     <!--资讯-->

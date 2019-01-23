@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -155,7 +157,16 @@ public class MainActivity extends BaseActivity {
 //
     }
 
+    private static boolean isExit = false;
 
+    Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
     private void creartFilepath(){
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             FileUtils.APP_DIR = Environment.getExternalStorageDirectory()
@@ -218,7 +229,8 @@ public class MainActivity extends BaseActivity {
                  navigation.setSelectedItemId(navigation.getMenu().getItem(0).getItemId());
                  mOnNavigationItemSelectedListener.onNavigationItemSelected(navigation.getMenu().getItem(0));
              }else {
-                 finish();
+                 exit();
+                 return false;
              }
             return true;
         }
@@ -241,5 +253,16 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+             ToastUtils.makeText(mcontent.getResources().getString(R.string.exite_dialog));
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 }

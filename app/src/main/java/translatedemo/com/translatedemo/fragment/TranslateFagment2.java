@@ -212,8 +212,9 @@ public class TranslateFagment2  extends BaseFragment {
                 }
             }
         });
-
-        getbannerdata();
+        if(BaseActivity.getuser().isMember==0) {
+            getbannerdata();
+        }
     }
 
 
@@ -419,7 +420,7 @@ public class TranslateFagment2  extends BaseFragment {
         @Override
         public void UpdateUI(Context context, int position, ListBean_information data) {
             imageView = mhandeview.findViewById(R.id.image);
-            Log.e("imageurl",data.image);
+
             final  String weburl = data.url;
             UIUtils.loadImageViewRoud(mContext,data.image,imageView,UIUtils.dip2px(15));
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -455,7 +456,7 @@ public class TranslateFagment2  extends BaseFragment {
 
     private void collectionDictionary(){
         Observable observable =
-                ApiUtils.getApi().collectionDictionary(BaseActivity.getLanguetype(mContext),BaseActivity.getuser().id+"",clickindex+1,input_editext_titl.getText().toString().trim(),requst_data.translateResult,choicecd.id+"","0")
+                ApiUtils.getApi().collectionDictionary(BaseActivity.getLanguetype(mContext),BaseActivity.getuser().id+"",clickindex+1,input_editext_titl.getText().toString().trim(),requst_data.translateResult,choicecd.id+"","1")
                         .compose(RxHelper.getObservaleTransformer())
                         .doOnSubscribe(new Consumer<Disposable>() {
                             @Override

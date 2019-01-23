@@ -3,16 +3,23 @@ package translatedemo.com.translatedemo.activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.Serializable;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -20,6 +27,9 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import me.wcy.htmltext.HtmlImageLoader;
+import me.wcy.htmltext.HtmlText;
+import me.wcy.htmltext.OnTagClickListener;
 import translatedemo.com.translatedemo.R;
 import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.bean.InformationBean;
@@ -192,10 +202,63 @@ public class NoticeDetailActivity extends BaseActivity{
         }
 
         if(!TextUtils.isEmpty(data.content)){
-            content.setText(data.content);
-        }else{
-            content.setText("");
+
+            HtmlText.from(data.content)
+                    .setImageLoader(new HtmlImageLoader() {
+                        @Override
+                        public void loadImage(String url, final Callback callback) {
+                            // Glide sample, you can also use other image loader
+                            SimpleTarget<Bitmap> into = Glide.with(NoticeDetailActivity.this)
+                                    .load(url)
+                                    .asBitmap()
+                                    .into(new SimpleTarget<Bitmap>() {
+                                        @Override
+                                        public void onResourceReady(Bitmap resource,
+                                                                    GlideAnimation<? super Bitmap> glideAnimation) {
+                                            callback.onLoadComplete(resource);
+                                        }
+
+                                        @Override
+                                        public void onLoadFailed(Exception e, Drawable errorDrawable) {
+                                            callback.onLoadFailed();
+                                        }
+                                    });
+                        }
+
+                        @Override
+                        public Drawable getDefaultDrawable() {
+                            return ContextCompat.getDrawable(NoticeDetailActivity.this, R.mipmap.buffer);
+                        }
+
+                        @Override
+                        public Drawable getErrorDrawable() {
+                            return ContextCompat.getDrawable(NoticeDetailActivity.this, R.mipmap.buffer);
+                        }
+
+                        @Override
+                        public int getMaxWidth() {
+                            return content.getMaxWidth();
+                        }
+
+                        @Override
+                        public boolean fitWidth() {
+                            return false;
+                        }
+                    })
+                    .setOnTagClickListener(new OnTagClickListener() {
+                        @Override
+                        public void onImageClick(Context context, List<String> imageUrlList, int position) {
+                            // image click
+                        }
+
+                        @Override
+                        public void onLinkClick(Context context, String url) {
+                            // link click
+                        }
+                    })
+                    .into(content);
         }
+
 
         if(!TextUtils.isEmpty(data.lookCount +"")){
             isshow.setText(data.lookCount +"");

@@ -28,7 +28,7 @@ public class TranslateApiUtils {
             Retrofit retrofit = new Retrofit.Builder()
                     .client(sBuilder.build())
                     .baseUrl(TranslateApi.isRelease ? TranslateApi.baseUrl : TranslateApi.testBaseUrl)
-                    .addConverterFactory(gsonConverterFactory)
+
                     .addCallAdapterFactory(rxJavaCallAdapterFactory)
                     .build();
             sApi = retrofit.create(TranslateApi.class);

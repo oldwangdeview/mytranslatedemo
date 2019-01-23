@@ -265,7 +265,7 @@ public class TranslateFragment extends BaseFragment {
         @Override
         public void UpdateUI(Context context, int position, ListBean_information data) {
             imageView = mhandeview.findViewById(R.id.image);
-            Log.e("imageurl",data.image);
+
             final  String weburl = data.url;
             UIUtils.loadImageViewRoud(mContext,data.image,imageView,UIUtils.dip2px(15));
             imageView.setOnClickListener(new View.OnClickListener() {
