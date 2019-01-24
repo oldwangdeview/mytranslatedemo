@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@mipmap/dictionary_ash"
+        android:icon="@mipmap/cidian22x"
         android:title="@string/translate_boottom" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@mipmap/translate_ash"
+        android:icon="@mipmap/fanyi22x"
         android:title="@string/message_boottom" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@mipmap/userinfo_ash"
+        android:icon="@mipmap/geren22x"
         android:title="@string/user_boottom" />
 
 </menu>

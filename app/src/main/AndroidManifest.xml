@@ -49,7 +49,8 @@
         <!--启动页-->
         <activity
             android:name=".activity.FalshActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleFullscreen2">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -143,6 +144,8 @@
         <!--帮助详情-->
         <activity android:name=".activity.HelpDetailActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.PeopleTranslateActivity"/>
 
         <!--配置第三方-->
         <!--微信-->

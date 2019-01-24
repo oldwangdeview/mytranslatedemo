@@ -55,6 +55,7 @@ public class MycouponActivity extends BaseActivity {
         tv_small_title_layout_head.setTextColor(this.getResources().getColor(R.color.c_e94950));
         title_name.setText(this.getResources().getString(R.string.mycoupon_text_titlename));
         tv_small_title_layout_head.setText(this.getResources().getString(R.string.mycoupon_text_getcoupon));
+
         mForbidScrollViewpagerActivityMyOrder.setOffscreenPageLimit(myOrderTitles.length);
         MyCouponPagerAdpater madpater = new MyCouponPagerAdpater(getSupportFragmentManager(),myOrderTitles);
         mForbidScrollViewpagerActivityMyOrder.setAdapter(madpater);

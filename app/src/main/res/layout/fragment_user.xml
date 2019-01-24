@@ -96,7 +96,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_10"
-            android:background="@color/c_e5e5e5"/>
+            android:background="@color/c_f5f5f5"/>
 
         <!--会员中心-->
         <LinearLayout
@@ -111,7 +111,7 @@
             <ImageView
                 android:layout_width="@dimen/dp_30"
                 android:layout_height="@dimen/dp_30"
-                android:src="@mipmap/huiyuan"/>
+                android:src="@mipmap/huiyuan3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -247,6 +247,20 @@
                         android:textSize="@dimen/sp_16"
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
+
+                    <TextView
+                        android:id="@+id/cupon_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:background="@drawable/shape_cupon"
+                        android:textSize="@dimen/sp_12"
+                        android:visibility="gone"
+                        android:paddingLeft="@dimen/dp_8"
+                        android:paddingRight="@dimen/dp_8"
+                        android:gravity="center"
+
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:textColor="@color/c_ffffff"/>
                     <ImageView
                         android:layout_width="@dimen/dp_10"
                         android:layout_height="@dimen/dp_13"
@@ -481,7 +495,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_1"
-                    android:background="@color/c_e5e5e5"/>
+                    android:background="@color/c_f5f5f5"/>
 
             </LinearLayout>
 

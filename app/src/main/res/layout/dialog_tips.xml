@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:qinc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_radius_10"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_42">
+    
+    <TextView
+        android:id="@+id/tv_title_dialog_tips"
+        android:textSize="24sp"
+        android:textColor="@color/c_383838"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:paddingTop="-20dp"
+        tools:text="确定要离开收银台？"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_content_dialog_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp_2"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_28"
+        android:textColor="@color/c_383838"
+        android:visibility="visible"
+        android:textSize="@dimen/sp_18"
+        tools:text="这是弹框内容地地道道的打发打发掉打发打发挨打" />
+
+
+
+
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_42"
+        android:background="@color/c_E6E6E6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_left_dialog_tips"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            tools:text="取消"
+            android:textColor="@color/c_383838"
+            android:textSize="@dimen/sp_16" />
+
+        <Button
+            android:id="@+id/btn_right_dialog_tips"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_dialog_cancel"
+            android:gravity="center"
+            tools:text="确认"
+            android:textColor="@color/c_ffffffff"
+            android:textSize="@dimen/sp_16" />
+    </LinearLayout>
+</LinearLayout>

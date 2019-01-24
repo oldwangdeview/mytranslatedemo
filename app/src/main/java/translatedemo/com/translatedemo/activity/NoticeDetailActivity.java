@@ -76,6 +76,8 @@ public class NoticeDetailActivity extends BaseActivity{
     @BindView(R.id.tv_small_title_layout_head)
     TextView tv_small_title_layout_head;
 
+    @BindView(R.id.shred_image)
+    ImageView shred_image;
     @Override
     protected void initView() {
       setContentView(R.layout.activity_noticedetail);
@@ -87,8 +89,9 @@ public class NoticeDetailActivity extends BaseActivity{
         iv_back_activity_text.setVisibility(View.VISIBLE);
         title_name.setText(this.getResources().getString(R.string.noticedetail_text_titlename));
         tv_small_title_layout_head.setText("");
-        tv_small_title_layout_head.setBackgroundResource(R.mipmap.fenxiang3);
-        tv_small_title_layout_head.setVisibility(View.VISIBLE);
+        shred_image.setImageResource(R.mipmap.fenxiang3);
+        shred_image.setVisibility(View.VISIBLE);
+        tv_small_title_layout_head.setVisibility(View.GONE);
         data = (ListBean_information)getIntent().getSerializableExtra(Contans.INTENT_DATA);
         isShow();
 
@@ -103,7 +106,7 @@ public class NoticeDetailActivity extends BaseActivity{
             Log.e("data.id",BaseActivity.getuser().id+"");
 
             Observable observable =
-                    ApiUtils.getApi().zanInformation(BaseActivity.getLanguetype(NoticeDetailActivity.this),data.id,data.type,BaseActivity.getuser().id+"")
+                    ApiUtils.getApi().zanInformation(BaseActivity.getLanguetype(NoticeDetailActivity.this),data.id,data.type==0?1:0,BaseActivity.getuser().id+"")
                             .compose(RxHelper.getObservaleTransformer())
                             .doOnSubscribe(new Consumer<Disposable>() {
                                 @Override

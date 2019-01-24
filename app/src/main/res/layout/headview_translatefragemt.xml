@@ -36,7 +36,7 @@
                     android:textSize="@dimen/sp_14"/>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_14"
+                    android:layout_width="@dimen/dp_10"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/jiantou"
                     android:layout_marginLeft="10dp"/>
@@ -56,7 +56,7 @@
                     android:focusable="false"
                     android:cursorVisible="false"
                     android:textSize="@dimen/sp_14"
-                    android:textColorHint="@color/c_ffffff"
+                    android:textColorHint="#f18d91"
                     android:textColor="@color/c_ffffff"
 
                     />

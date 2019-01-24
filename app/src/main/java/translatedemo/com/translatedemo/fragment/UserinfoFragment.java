@@ -1,5 +1,6 @@
 package translatedemo.com.translatedemo.fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -8,14 +9,23 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import translatedemo.com.translatedemo.R;
 import translatedemo.com.translatedemo.activity.FeedBackActivity;
+import translatedemo.com.translatedemo.activity.GetCouponActivty;
 import translatedemo.com.translatedemo.activity.HelpCenterActivity;
 import translatedemo.com.translatedemo.activity.MenberCenterActivity;
 import translatedemo.com.translatedemo.activity.MyCollectionActivity;
@@ -26,8 +36,19 @@ import translatedemo.com.translatedemo.activity.SetingActivty;
 import translatedemo.com.translatedemo.activity.UserinfoActivity;
 import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.base.BaseFragment;
+import translatedemo.com.translatedemo.bean.GetCouponListBean;
 import translatedemo.com.translatedemo.bean.LoginBean;
+import translatedemo.com.translatedemo.bean.StatusCode;
+import translatedemo.com.translatedemo.contans.Contans;
+import translatedemo.com.translatedemo.eventbus.UpdateCuponEvent;
 import translatedemo.com.translatedemo.eventbus.UpdateUserEvent;
+import translatedemo.com.translatedemo.http.HttpUtil;
+import translatedemo.com.translatedemo.http.ProgressSubscriber;
+import translatedemo.com.translatedemo.http.RxHelper;
+import translatedemo.com.translatedemo.rxjava.ApiUtils;
+import translatedemo.com.translatedemo.util.LoadingDialogUtils;
+import translatedemo.com.translatedemo.util.LogUntil;
+import translatedemo.com.translatedemo.util.ToastUtils;
 import translatedemo.com.translatedemo.util.UIUtils;
 
 /**
@@ -45,8 +66,9 @@ public class UserinfoFragment extends BaseFragment {
     ImageView sex_image;
     @BindView(R.id.vip_image)
     ImageView vip_iamge;
-
-
+    @BindView(R.id.cupon_size)
+    TextView cupon_size;
+    private Dialog mLoadingDialog;
     @Override
     public View initView(Context context) {
         return UIUtils.inflate(mContext, R.layout.fragment_user);
@@ -57,6 +79,7 @@ public class UserinfoFragment extends BaseFragment {
         super.initData();
         EventBus.getDefault().register(this);
         updateUserdata();
+        getcuponsize();
     }
 
     private void updateUserdata(){
@@ -180,7 +203,6 @@ public class UserinfoFragment extends BaseFragment {
 
     /**
      * 帮助
-     * @param uodate
      */
     @OnClick(R.id.help_center)
     public void gotohelpcenter(){
@@ -192,6 +214,59 @@ public class UserinfoFragment extends BaseFragment {
         updateUserdata();
     }
 
+    private void getcuponsize(){
+        Observable observable =
+                ApiUtils.getApi().getCouponList(0, BaseActivity.getuser().id+"",BaseActivity.getLanguetype(mContext))
+                        .compose(RxHelper.getObservaleTransformer())
+                        .doOnSubscribe(new Consumer<Disposable>() {
+                            @Override
+                            public void accept(Disposable disposable) throws Exception {
+                                try {
+
+
+                                    if (mLoadingDialog == null) {
+                                        mLoadingDialog = LoadingDialogUtils.createLoadingDialog(mContext, "");
+                                    }
+                                    LoadingDialogUtils.show(mLoadingDialog);
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                        .subscribeOn(AndroidSchedulers.mainThread());
+
+        HttpUtil.getInstance().toSubscribe(observable, new ProgressSubscriber<List<GetCouponListBean>>(mContext) {
+            @Override
+            protected void _onNext(StatusCode<List<GetCouponListBean>> stringStatusCode) {
+                new LogUntil(mContext,TAG+"getCouponList",new Gson().toJson(stringStatusCode));
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+
+                if(stringStatusCode.getCode()==0&&stringStatusCode.getData()!=null&&stringStatusCode.getData().size()>0) {
+                    cupon_size.setVisibility(View.VISIBLE);
+                    cupon_size.setText(stringStatusCode.getData().size()+"");
+                }else{
+                    cupon_size.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            protected void _onError(String message) {
+
+                ToastUtils.makeText(message);
+                LoadingDialogUtils.closeDialog(mLoadingDialog);
+       ;
+            }
+        }, "", lifecycleSubject, false, true);
+    }
+
+    /**
+     * 刷新领取优惠券
+     * @param uodate
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void updatacopo( UpdateCuponEvent uodate){
+        getcuponsize();
+    }
 
     @Override
     public void onDestroy() {

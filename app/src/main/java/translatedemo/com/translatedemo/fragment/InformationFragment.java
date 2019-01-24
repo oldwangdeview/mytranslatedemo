@@ -46,6 +46,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import translatedemo.com.translatedemo.R;
+import translatedemo.com.translatedemo.activity.PeopleTranslateActivity;
 import translatedemo.com.translatedemo.activity.UserinfoActivity;
 import translatedemo.com.translatedemo.adpater.ChoiceLangvageAdpater;
 import translatedemo.com.translatedemo.base.BaseActivity;
@@ -133,6 +134,12 @@ public class InformationFragment extends BaseFragment {
                 }catch (Exception e){
 
                 }
+            }
+        });
+        tanslaterequest.findViewById(R.id.pople_translate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PeopleTranslateActivity.startactivity(mContext);
             }
         });
 

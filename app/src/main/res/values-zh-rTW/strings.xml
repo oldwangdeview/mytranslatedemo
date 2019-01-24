@@ -18,6 +18,7 @@
 	<string name="tackphoto">པར་ལེན་པ་</string>
 	<string name="imagelist">ས་གནས་རང་གི་པར་དེབ་ལ་</string>
 	<string name="update_seccese">བཟོ་བཅོས་ལེགས་འགྲུབ་བྱུང་</string>
+	<string name="dialog_message">ཐོ་འགོད་ཕྱིར་འཐེན་ཡིན་མིན་？</string>
 	<!--主页底部导航栏-->
 
 	<string name="translate_boottom">ཚིག་མཛོད་</string>
@@ -198,6 +199,9 @@
 	</string-array>
 
 	<string name="helpcenter_text_titlename">རོགས་རམ་ལྟེ་གནས་</string>
-
+	<!--人工翻译-->
+	<string name="pople_translate_text_titlenam">མི་བུའི་ལོ་ཙཱ་</string>
+	<string name="pople_translate_text_ts">ང་ཚོས་ཆེད་ལས་ཀྱི་མི་བུའི་ལོ་ཙཱ་ཞབས་ཞུ་མཁོ་འདོན་བྱས་ཆོག་བོད་རྒྱ་དང་། བོད་དབྱིན་། བོད་ཚངས་པ་སོགས་སྐད་ཡིག་སྣ་ཚོགས་སུ་ཡིག་སྒྱུར་། ཞབས་ཞུའི་སྤུས་ཚད་མཐོ་བ་དང་། རིན་ཚད་འོས་པ་, ནི་ཁྱེད་རང་གི་མི་གཉིས་ནས་འདེམ་པ་། ང་ཚོས་བསམ་པ་རྣམ་དག་གིས་ཁྱེད་ལ་ཞབས་ཕྱི་བཞུ་།
+ཁྱོད་ཀྱིས་གཤམ་གྱི་འབྲེལ་གཏུག་བྱེད་སྟངས་ང་ཚོས་འབྲེལ་བ་</string>
 
 </resources>

@@ -17,6 +17,7 @@ import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.eventbus.OverMainactivty;
 import translatedemo.com.translatedemo.util.PreferencesUtils;
 import translatedemo.com.translatedemo.util.UIUtils;
+import translatedemo.com.translatedemo.view.TipsDialog;
 
 /**
  * Created by oldwang on 2019/1/11 0011.
@@ -85,13 +86,33 @@ public class SetingActivty extends BaseActivity {
     public void finishactivity(){
         finish();
     }
+    TipsDialog mdialog;
     @OnClick(R.id.rejest_btn)
     public void loginout(){
-        BaseActivity.user=null;
-        PreferencesUtils.getInstance().putString(BaseActivity.LOGINUSER,"");
-        EventBus.getDefault().post(new OverMainactivty());
-        LoginActivity.startactivity(this);
-        finish();
+        if(mdialog==null) {
+            mdialog = new TipsDialog.Builder(this)
+                    .setTitle(getResources().getString(R.string.help))
+                    .setContentView(getResources().getString(R.string.dialog_message))
+                    .setLeftButton(getResources().getString(R.string.translate_text_quxiao), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mdialog.dismiss();
+                        }
+                    })
+                    .setRightButton(getResources().getString(R.string.translate_text_qued), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            BaseActivity.user=null;
+                            PreferencesUtils.getInstance().putString(BaseActivity.LOGINUSER,"");
+                            EventBus.getDefault().post(new OverMainactivty());
+                            LoginActivity.startactivity(SetingActivty.this);
+                            finish();
+                        }
+                    })
+                    .build();
+        }
+        mdialog.show();
+
     }
 
 

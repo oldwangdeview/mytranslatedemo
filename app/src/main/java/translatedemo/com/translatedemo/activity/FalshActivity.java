@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -19,7 +20,7 @@ import translatedemo.com.translatedemo.util.UIUtils;
  * Created by Administrator on 2018/12/25 0025.
  */
 
-public class FalshActivity  extends BaseActivity{
+public class FalshActivity  extends AppCompatActivity{
 
     static final String[] PERMISSION = new String[]{
             Manifest.permission.WRITE_EXTERNAL_STORAGE,// 写入权限
@@ -32,34 +33,38 @@ public class FalshActivity  extends BaseActivity{
             Manifest.permission.CALL_PHONE
 
     };
-    @Override
-    protected void initView() {
-          setContentView(R.layout.activity_flash);
-    }
-
-
+//    @Override
+//    protected void initView() {
+//
+//    }
 
     @Override
-    protected void initData() {
-        super.initData();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        UIUtils.showFullScreen(FalshActivity.this,true);
+        if (!UIUtils.isMarshmallow()) {
+            ChoiceLanguageActivity.startactivity(FalshActivity.this);
+            finish();
+        } else {
+            CheckPermission checkPermission = new CheckPermission(FalshActivity.this);
+            if (checkPermission.permissionSet(PERMISSION)) {
 
-                    UIUtils.showFullScreen(FalshActivity.this,true);
-                    if (!UIUtils.isMarshmallow()) {
-                        ChoiceLanguageActivity.startactivity(FalshActivity.this);
-                        finish();
-                    } else {
-                        CheckPermission checkPermission = new CheckPermission(FalshActivity.this);
-                        if (checkPermission.permissionSet(PERMISSION)) {
+                PermissionActivity.startActivityForResult(FalshActivity.this, Contans.PERMISSION_REQUST_COND, PERMISSION);
+            } else {
 
-                            PermissionActivity.startActivityForResult(FalshActivity.this, Contans.PERMISSION_REQUST_COND, PERMISSION);
-                        } else {
-
-                            ChoiceLanguageActivity.startactivity(FalshActivity.this);
-                            finish();
-                        }
-                    }
+                ChoiceLanguageActivity.startactivity(FalshActivity.this);
+                finish();
+            }
+        }
 
     }
+//
+//    @Override
+//    protected void initData() {
+//        super.initData();
+//
+//
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

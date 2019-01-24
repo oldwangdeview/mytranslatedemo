@@ -19,6 +19,7 @@
     <string name="tackphoto">拍照</string>
     <string name="imagelist">本地相册</string>
     <string name="update_seccese">修改成功</string>
+    <string name="dialog_message">是否退出登录？</string>
     <!--主页底部导航栏-->
 
     <string name="translate_boottom">词典</string>
@@ -194,5 +195,9 @@
     </string-array>
     <string name="helpcenter_text_titlename">帮助中心</string>
 
+    <!--人工翻译-->
+    <string name="pople_translate_text_titlenam">人工翻译</string>
+    <string name="pople_translate_text_ts">我们提供专业的人工翻译服务，可进行藏汉、藏英、藏梵等多语种翻译。服务品质高，价格合理，是您的不二之选，我们将竭诚为你服务。
+您可以通过下面的联系方式联系到我们</string>
 
 </resources>

@@ -426,6 +426,7 @@ public class UserinfoActivity extends BaseActivity{
 
 
 
+
     public static void startactivity(Context mContext){
         Intent mIntent = new Intent(mContext,UserinfoActivity.class);
         mContext.startActivity(mIntent);
