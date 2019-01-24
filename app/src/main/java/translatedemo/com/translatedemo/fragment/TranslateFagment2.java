@@ -36,6 +36,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import translatedemo.com.translatedemo.R;
 import translatedemo.com.translatedemo.activity.FeedBackActivity;
+import translatedemo.com.translatedemo.activity.Look_imageActivity;
 import translatedemo.com.translatedemo.activity.OffLineActivity;
 import translatedemo.com.translatedemo.adpater.TanslateTitleAdpater;
 import translatedemo.com.translatedemo.adpater.TranslateBottomAdpater;
@@ -388,6 +389,7 @@ public class TranslateFagment2  extends BaseFragment {
                     translate_linyout.addView(translate_requestdata);
                     if(!TextUtils.isEmpty(requst_data.image)){
                         translate_iamge.setVisibility(View.VISIBLE);
+                        requst_dataimage = requst_data.image;
                         UIUtils.loadImageView(mContext,requst_data.image,translate_iamge);
                     }
                 }
@@ -524,5 +526,11 @@ public class TranslateFagment2  extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(TranslateFagment2.this);
+    }
+    private String requst_dataimage = "";
+    @OnClick(R.id.translate_iamge)
+    public void lookimage(){
+        if(!TextUtils.isEmpty(requst_dataimage))
+        Look_imageActivity.startactivity(mContext,requst_dataimage);
     }
 }

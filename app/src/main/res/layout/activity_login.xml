@@ -17,12 +17,12 @@
                 android:layout_height="@dimen/dp_44">
                 <ImageView
                     android:id="@+id/iv_back_activity_basepersoninfo"
-                    android:layout_width="@dimen/dp_24"
-                    android:layout_height="@dimen/dp_24"
+                    android:layout_width="24dip"
+                    android:layout_height="24dip"
                     android:padding="@dimen/dp_3"
                     android:visibility="gone"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/dp_17"
+                    android:layout_marginLeft="17dip"
                     android:src="@mipmap/fh" />
 
                 <TextView
@@ -37,7 +37,7 @@
                     />
                 <TextView
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginRight="20dip"
                     android:layout_centerVertical="true"
                     android:id="@+id/tv_small_title_layout_head"
                     android:visibility="invisible"
@@ -57,16 +57,16 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dp_72"
-                    android:layout_height="@dimen/dp_72"
-                    android:layout_marginTop="@dimen/dp_82"
+                    android:layout_width="72dip"
+                    android:layout_height="72dip"
+                    android:layout_marginTop="60dip"
                     android:layout_gravity="center_horizontal"
                     android:src="@mipmap/logo"/>
                 <EditText
                     android:id="@+id/login_inputeditext_phone"
-                    android:layout_width="@dimen/dp_280"
-                    android:layout_height="@dimen/dp_40"
-                    android:layout_marginTop="@dimen/dp_62"
+                    android:layout_width="280dip"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="62dip"
                     android:layout_gravity="center_horizontal"
                     android:hint="@string/login_hint_phone"
                     android:padding="@dimen/dp_10"
@@ -79,8 +79,8 @@
 
                 <LinearLayout
 
-                    android:layout_width="@dimen/dp_280"
-                    android:layout_height="@dimen/dp_40"
+                    android:layout_width="280dip"
+                    android:layout_height="40dip"
                     android:layout_marginTop="@dimen/dp_25"
                     android:layout_gravity="center_horizontal"
                     android:padding="@dimen/dp_10"
@@ -117,7 +117,7 @@
                     android:id="@+id/login_button_reture"
                     android:layout_width="@dimen/dp_280"
                     android:layout_height="@dimen/dp_44"
-                    android:layout_marginTop="@dimen/dp_55"
+                    android:layout_marginTop="50dip"
                     android:background="@drawable/login_but"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"

@@ -13,9 +13,9 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/dp_80"
-            android:layout_height="@dimen/dp_80"
-            android:layout_marginTop="@dimen/dp_123"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="123dp"
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/logo"/>
         <TextView
@@ -26,7 +26,7 @@
             android:textSize="@dimen/sp_16"
             android:typeface="normal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp_20"/>
+            android:layout_marginTop="20dip"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,8 +42,8 @@
 
         <TextView
             android:id="@+id/chunaese"
-            android:layout_width="@dimen/dp_280"
-            android:layout_height="@dimen/dp_49"
+            android:layout_width="280dip"
+            android:layout_height="49dip"
             android:background="@drawable/choice_language_chinese"
             android:padding="5dp"
             android:layout_marginTop="@dimen/dp_33"
@@ -55,11 +55,11 @@
 
         <TextView
             android:id="@+id/zangwen"
-            android:layout_width="@dimen/dp_280"
-            android:layout_height="@dimen/dp_49"
+            android:layout_width="280dip"
+            android:layout_height="40dip"
             android:background="@drawable/choice_language_chinese"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginTop="16dip"
             android:padding="5dp"
             android:text="བོད་ཡིག།"
             android:gravity="center"

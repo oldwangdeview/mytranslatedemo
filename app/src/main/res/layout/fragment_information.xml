@@ -26,7 +26,8 @@
             android:text="@string/translate_text_chinese"/>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/qieh"
+            android:layout_width="@dimen/dp_20"
             android:layout_height="wrap_content"
             android:src="@mipmap/qiehuan"
             android:layout_marginLeft="@dimen/dp_40"

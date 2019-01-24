@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -72,6 +73,8 @@ public class NoticeDetailActivity extends BaseActivity{
     TextView zan;
     @BindView(R.id.zan_image)
     ImageView zan_image;
+    @BindView(R.id.tv_small_title_layout_head)
+    TextView tv_small_title_layout_head;
 
     @Override
     protected void initView() {
@@ -83,6 +86,9 @@ public class NoticeDetailActivity extends BaseActivity{
         super.initData();
         iv_back_activity_text.setVisibility(View.VISIBLE);
         title_name.setText(this.getResources().getString(R.string.noticedetail_text_titlename));
+        tv_small_title_layout_head.setText("");
+        tv_small_title_layout_head.setBackgroundResource(R.mipmap.fenxiang3);
+        tv_small_title_layout_head.setVisibility(View.VISIBLE);
         data = (ListBean_information)getIntent().getSerializableExtra(Contans.INTENT_DATA);
         isShow();
 
@@ -92,6 +98,9 @@ public class NoticeDetailActivity extends BaseActivity{
     @OnClick({R.id.zan_image,R.id.zan})
     public void zandata(){
         if(data.isZan==0){
+            Log.e("data.id",data.id+"");
+            Log.e("data.id",data.type+"");
+            Log.e("data.id",BaseActivity.getuser().id+"");
 
             Observable observable =
                     ApiUtils.getApi().zanInformation(BaseActivity.getLanguetype(NoticeDetailActivity.this),data.id,data.type,BaseActivity.getuser().id+"")
@@ -120,7 +129,6 @@ public class NoticeDetailActivity extends BaseActivity{
                     LoadingDialogUtils.closeDialog(mLoadingDialog);
                     zan_image.setImageResource(R.mipmap.zan2);
                     data.isZan=1;
-
                     isShow();
                 }
 
@@ -163,7 +171,7 @@ public class NoticeDetailActivity extends BaseActivity{
         HttpUtil.getInstance().toSubscribe(observable, new ProgressSubscriber<ListBean_information>(NoticeDetailActivity.this) {
             @Override
             protected void _onNext(StatusCode<ListBean_information> stringStatusCode) {
-                new LogUntil(NoticeDetailActivity.this,TAG+"zixunmessage",new Gson().toJson(stringStatusCode));
+                new LogUntil(NoticeDetailActivity.this,TAG+"readInformation",new Gson().toJson(stringStatusCode));
                 LoadingDialogUtils.closeDialog(mLoadingDialog);
                if(stringStatusCode!=null&&stringStatusCode.getCode()==0&&stringStatusCode.getData()!=null){
                    data=stringStatusCode.getData();
@@ -289,6 +297,14 @@ public class NoticeDetailActivity extends BaseActivity{
         Intent mIntent = new Intent(mContext,NoticeDetailActivity.class);
         mIntent.putExtra(Contans.INTENT_DATA,(Serializable)data);
         mContext.startActivity(mIntent);
+
+    }
+
+    /**
+     * 分享点击
+     */
+    @OnClick(R.id.tv_small_title_layout_head)
+    public void shard(){
 
     }
 }

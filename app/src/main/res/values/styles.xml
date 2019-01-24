@@ -65,4 +65,12 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="NoTitleFullscreen2" parent="android:Theme.DeviceDefault.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@mipmap/qidong</item>
+    </style>
+
+
 </resources>

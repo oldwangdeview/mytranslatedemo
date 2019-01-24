@@ -136,7 +136,7 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait"/>
 
-
+        <activity android:name=".activity.Look_imageActivity"/>
         <!--帮助中心-->
         <activity android:name=".activity.HelpCenterActivity"
             android:screenOrientation="portrait"/>

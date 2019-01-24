@@ -207,13 +207,7 @@
                 android:textColor="@color/c_ff333333"
                 android:gravity="right"
                 />
-            <ImageView
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_15"
-                android:layout_marginRight="@dimen/dp_15"
-                android:src="@mipmap/jiantou2"
-                android:layout_gravity="center_vertical"/>
+
         </LinearLayout>
 
     </LinearLayout>

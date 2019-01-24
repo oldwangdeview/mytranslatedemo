@@ -9,6 +9,7 @@ import android.util.Log;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import translatedemo.com.translatedemo.R;
 import translatedemo.com.translatedemo.base.BaseActivity;
 import translatedemo.com.translatedemo.contans.Contans;
 import translatedemo.com.translatedemo.util.CheckPermission;
@@ -33,7 +34,7 @@ public class FalshActivity  extends BaseActivity{
     };
     @Override
     protected void initView() {
-
+          setContentView(R.layout.activity_flash);
     }
 
 
@@ -42,20 +43,22 @@ public class FalshActivity  extends BaseActivity{
     protected void initData() {
         super.initData();
 
-        if (!UIUtils.isMarshmallow()) {
-            ChoiceLanguageActivity.startactivity(this);
-            finish();
-        } else {
-            CheckPermission checkPermission = new CheckPermission(this);
-            if (checkPermission.permissionSet(PERMISSION)) {
-//                startPermissionActivity();
-                PermissionActivity.startActivityForResult(this, Contans.PERMISSION_REQUST_COND, PERMISSION);
-            } else {
+                    UIUtils.showFullScreen(FalshActivity.this,true);
+                    if (!UIUtils.isMarshmallow()) {
+                        ChoiceLanguageActivity.startactivity(FalshActivity.this);
+                        finish();
+                    } else {
+                        CheckPermission checkPermission = new CheckPermission(FalshActivity.this);
+                        if (checkPermission.permissionSet(PERMISSION)) {
 
-                ChoiceLanguageActivity.startactivity(this);
-                finish();
-            }
-        }
+                            PermissionActivity.startActivityForResult(FalshActivity.this, Contans.PERMISSION_REQUST_COND, PERMISSION);
+                        } else {
+
+                            ChoiceLanguageActivity.startactivity(FalshActivity.this);
+                            finish();
+                        }
+                    }
+
     }
 
     @Override

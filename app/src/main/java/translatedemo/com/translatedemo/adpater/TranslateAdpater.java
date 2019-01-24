@@ -15,6 +15,7 @@ import translatedemo.com.translatedemo.base.BaseRecycleAdapter;
 import translatedemo.com.translatedemo.bean.ListBean_information;
 import translatedemo.com.translatedemo.help.RecycleViewHolder;
 import translatedemo.com.translatedemo.interfice.ListOnclickLister;
+import translatedemo.com.translatedemo.util.LogUntil;
 import translatedemo.com.translatedemo.util.UIUtils;
 
 /**
@@ -55,6 +56,7 @@ public class TranslateAdpater extends BaseRecycleAdapter<ListBean_information>{
 
 
         if(!TextUtils.isEmpty(s.image)){
+            new LogUntil(mContext,"imageoarh",s.image);
             image.setVisibility(View.VISIBLE);
             UIUtils.loadImageView(mContext,s.image,image);
         }else {

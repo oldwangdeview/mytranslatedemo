@@ -1,6 +1,7 @@
 package translatedemo.com.translatedemo.adpater;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,7 +41,14 @@ public class TranslateBottomAdpater extends BaseRecycleAdapter<DictionaryBean> {
             translate_btn.setBackgroundResource(R.drawable.translate_bottom_btn1);
             translate_btn.setTextColor(mContext.getResources().getColor(R.color.c_999999));
         }
-        translate_btn.setText(s.name);
+        if(s.isMemberVisible==1){
+            Drawable drawable = mContext.getResources().getDrawable(R.mipmap.vip);
+            translate_btn.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
+        }else{
+
+            translate_btn.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
+        }
+        translate_btn.setText(s.name+" ");
         holder.getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

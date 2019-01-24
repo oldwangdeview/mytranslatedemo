@@ -479,6 +479,14 @@ public class InformationFragment extends BaseFragment {
         }, "", lifecycleSubject, false, true);
     }
 
+    @OnClick(R.id.qieh)
+    public void qieh(){
+        String text1 = Choice_text1.getText().toString().trim();
+        String text2 = Choice_text2.getText().toString().trim();
+        Choice_text1.setText(text2);
+        Choice_text2.setText(text1);
+        input_editet.setText("");
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

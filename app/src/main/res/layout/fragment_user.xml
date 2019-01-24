@@ -64,15 +64,15 @@
                         />
                     <ImageView
                         android:id="@+id/sex_image"
-                        android:layout_width="@dimen/dp_20"
-                        android:layout_height="@dimen/dp_20"
+                        android:layout_width="@dimen/dp_17"
+                        android:layout_height="@dimen/dp_17"
                         android:layout_marginLeft="@dimen/dp_5"/>
 
                     <ImageView
                         android:id="@+id/vip_image"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/dp_20"
                         android:layout_marginLeft="@dimen/dp_5"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="@dimen/dp_20" />
                 </LinearLayout>
 
                 <TextView
@@ -138,8 +138,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -192,8 +192,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -248,8 +248,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -305,8 +305,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -360,8 +360,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -418,8 +418,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -472,8 +472,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>
@@ -526,8 +526,8 @@
                         android:drawablePadding="@dimen/dp_2"
                         android:textColor="@color/c_ff333333"/>
                     <ImageView
-                        android:layout_width="@dimen/dp_12"
-                        android:layout_height="@dimen/dp_17"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_13"
                         android:src="@mipmap/jiantou2"
                         android:scaleType="fitXY"/>
                 </LinearLayout>

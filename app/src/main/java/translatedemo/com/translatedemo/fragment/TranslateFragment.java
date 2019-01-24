@@ -77,7 +77,7 @@ public class TranslateFragment extends BaseFragment {
     private TranslateAdpater madpater;
     public List<ListBean_information> list = new ArrayList<>();
     public ConvenientBanner mConvenientBanner;
-
+    private View headview;
     @Override
     public View initView(Context context) {
         mLoadingPagerHead = new LoadingPagerHead(context) {
@@ -110,6 +110,18 @@ public class TranslateFragment extends BaseFragment {
         super.initData();
         EventBus.getDefault().register(this);
         yrecycleview_.addHeadView(mHeadView);
+        mHeadView.findViewById(R.id.myhome_line_top).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new UpdateMainIndex(3));
+            }
+        });
+        mHeadView.findViewById(R.id.myhome_line_top_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new UpdateMainIndex(3));
+            }
+        });
         madpater = new TranslateAdpater(mContext, list);
         mLoadingPagerHead.showPagerView(Contans.STATE_SUCCEED);
         yrecycleview_.setLayoutManager(new LinearLayoutManager(mContext));
@@ -321,11 +333,11 @@ public class TranslateFragment extends BaseFragment {
     }
 
 
-    /**
-     * 跳转到翻译
-     */
-    @OnClick({R.id.myhome_line_top,R.id.myhome_line_top_1})
-    public void gotoTranslateActivity(){
-        EventBus.getDefault().post(new UpdateMainIndex(3));
-    }
+//    /**
+//     * 跳转到翻译
+//     */
+//    @OnClick({R.id.myhome_line_top,R.id.myhome_line_top_1})
+//    public void gotoTranslateActivity(){
+//        EventBus.getDefault().post(new UpdateMainIndex(3));
+//    }
 }

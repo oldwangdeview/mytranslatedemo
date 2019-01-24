@@ -36,22 +36,22 @@
 
             <ImageView
                 android:id="@+id/shared_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
                 android:src="@mipmap/fenxiang"/>
 
             <ImageView
                 android:id="@+id/fuzhi_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
                 android:layout_marginLeft="@dimen/dp_50"
                 android:src="@mipmap/fuzhi"/>
             <ImageView
                 android:id="@+id/shouc_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
                 android:layout_marginLeft="@dimen/dp_50"
-                android:src="@mipmap/shoucang1"/>
+                android:src="@mipmap/shoucang_hui"/>
 
             <LinearLayout
                 android:id="@+id/pople_translate"
@@ -62,7 +62,7 @@
 
                 android:gravity="right">
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/dp_20"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/tips"/>
                 <TextView
